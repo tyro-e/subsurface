@@ -9,7 +9,6 @@ class UrlMappings {
         }
 
         "/"(controller:"main")
-
         "/artist"(controller:"artist")
         "/venue"(controller:"venue")
         "/event"(controller:"event")
@@ -18,14 +17,9 @@ class UrlMappings {
 
         "500"(view:'/error')
 
-        "/login/$action?"(controller: "login")
-		"/logout/$action?"(controller: "logout")
-
         "/event/$id/upload"(controller: "event", parseRequest: true) 
         {
            action = [POST: "uploadImageToAmazon"]
         }
-
-
 	}
 }

@@ -27,24 +27,16 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <ul class="nav navbar-nav">
-          <li><a class="" href="/fyp/" style="font-size: 18px;font-weight: 600;">SUBSURFACE</a></li>
+          <li><g:link controller = "main" style="font-size: 18px;font-weight: 600;">SUBSURFACE</g:link></li>
           <li><g:link controller = "event">UPCOMING</g:link></li> 
           <li><g:link controller = "artist">ARTISTS</g:link></li>
           <li><g:link controller = "venue">VENUES</g:link></li> 
           <li><g:link controller = "livestream">LIVESTREAM</g:link></li> 
 
           <li style="float: right;">
-            <sec:ifNotLoggedIn>
-              <g:link controller = "login">
-                <span>LOGIN</span>
-              </g:link>
-            </sec:ifNotLoggedIn>
-
-            <sec:ifLoggedIn>
-              <g:link controller = "logout">
-                <span>LOGOUT</span>
-              </g:link>
-            </sec:ifLoggedIn>
+                <div class="login-control">
+                  <g:loginControl/>
+                </div>
           </li>
         </ul>
       </div>

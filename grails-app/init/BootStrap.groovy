@@ -1,7 +1,5 @@
 import grails.util.Environment
 import fyp.User
-import fyp.Role
-import fyp.UserRole
 import fyp.EventController
 import fyp.Event
 
@@ -11,15 +9,10 @@ class BootStrap {
 
         //new EventController().populate()
 
-        def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
-        def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
+        def user = User.findOrSaveWhere(fullName:"Tyrone Stock", email:"s.tyrone@hotmail.com", password:"root",role:"ROLE_USER")
+        def admin = User.findOrSaveWhere(fullName:"Admin", email:"admin@hotmail.com", password:'root',role:"ROLE_ADMIN")
 
-        def admin = new User(username: "admin", password: "admin", enabled: true).save(flush: true)
-        UserRole.create(admin, adminRole).save()
-        UserRole.create(admin, userRole).save()
 
-        def user = new User(username: "user", password: "user", enabled: true).save(flush: true)
-        UserRole.create(user, userRole).save()
     }
 
     def destroy = {

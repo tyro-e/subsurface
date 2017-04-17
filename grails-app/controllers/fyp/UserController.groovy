@@ -9,6 +9,43 @@ class UserController {
     
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+
+
+    def login(){}
+    
+    def authenticate(){
+        def user = User.findByEmailIlikeAndPassword(params.email, params.password)
+
+        if(user != null){
+            session.user = user 
+            redirect(controller:"main")
+        }
+
+        else{
+            flash.message= "Sorry, ${params.email}. Try again"
+            redirect(action:"login")
+        }
+    }
+    
+    def logout(){
+        flash.message="Goodbye ${session.user.fullName}"
+        session.user = null
+        redirect(controller:"main")
+    }
+
+
+    def auth(){
+        if(!session.user){
+            redirect(controller:'user', action:'login')
+            return false
+        }
+    }
+
+
+
+
+
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
@@ -40,7 +77,7 @@ class UserController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'userInstance.label', default: 'User'), userInstance.id])
-                redirect userInstance
+                redirect(controller:'main')
             }
             '*' { respond userInstance, [status: CREATED] }
         }
