@@ -1,0 +1,38 @@
+html {
+    background: #eee;
+}
+
+
+video {
+    object-fit: fill;
+    width: 720px;
+    height: 430px;
+}
+button,input,select {
+    font-weight: normal;
+    padding: 2px 4px;
+    text-decoration: none;
+    display: inline-block;
+    text-shadow: none;
+    font-size: 16px;
+    outline: none;
+}
+
+.content{
+    padding: 0px 27px;
+}
+
+.event-title{
+    line-height: 40px;
+}
+
+.event-artist{
+    font-size: 60px;
+    color: white;
+}
+
+.event-venue{
+    font-size: 40px;
+    display: inline-block;
+    color: white;
+}

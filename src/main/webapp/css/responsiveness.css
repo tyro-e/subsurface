@@ -1,0 +1,7 @@
+@media screen and (max-width: 1400px)
+{
+	.homepage-top-main-container{margin-top: 9%;}
+	.eventSectionTitle{font-size: 49px;}
+	.artist-search-field{font-size: 43px;}
+	.datetimepicker td{font-size: 22px;}
+}

@@ -1,0 +1,301 @@
+*:focus {
+    outline: none;
+}
+
+html {
+    background-color: black;
+    height: 100%;
+    /* change the box model to exclude the padding from the calculation of 100% height (IE8+) */
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html * {
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #fff;
+    background-color: #000 !important;
+}
+
+textarea:focus, input[type="text"]:focus, input:focus {
+    border-color: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:4px !important; 
+    padding-bottom:0 !important;
+    height: 28px;
+}
+
+.navbar {min-height:28px !important;}
+
+.navbar{
+	border-bottom: 1px solid white !important;
+}
+
+.navbar-nav{
+	float: none !important;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover{
+	color: red !important;
+}
+
+.navbar-inverse{
+	background-color: transparent !important;
+	border: none !important;
+}
+
+
+
+/* LOGIN */
+
+/* reset everything */
+* {
+  margin:  0px;
+  padding: 0px;
+  border:  0px;
+}
+ 
+/* for font size settings, see also
+ * http://www.alistapart.com/articles/howtosizetextincss/
+ */
+html {
+  font-size: 62.5%;
+}
+ 
+body {
+  font-family: "Century Gothic", Verdana, sans-serif;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 1.8em;
+}
+ 
+/* header formatting */
+h1, h2, h3, h4, h5, h6 {
+  color: #004A7F;
+  font-weight: normal;
+  margin: 0em 0em 0.5em 0em;
+}
+ 
+h1 { font-size: 2.2em; }
+h2 { font-size: 2.0em; }
+h3 { font-size: 1.8em; }
+h4 { font-size: 1.6em; }
+h5 { font-size: 1.4em; }
+h6 { font-size: 1.2em; }
+ 
+ 
+div#wrapper {
+  text-align: left;
+}
+ 
+div#footer {
+  text-align: center;
+  border-top: 1px solid #333333;
+}
+ 
+/* ----- simple input form ----- */
+.simpleform {
+  margin: 0 auto 1.0em auto;
+  width: 80%;
+}
+ 
+.simpleform fieldset {
+  padding: 0.5em;
+  border: solid 2px #b7ddf2;
+  background: #ebf4fb;
+}
+ 
+.simpleform legend {
+  color: #004A7F;
+  font-size: 1.4em;
+  font-weight: normal;
+}
+ 
+.simpleform p {
+  margin-bottom: 1.0em;
+}
+ 
+.simpleform p.info {
+  color: #666666;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #b7ddf2;
+  margin-bottom: 1.0em;
+}
+ 
+.simpleform label {
+  width: 30%;
+  clear: both;
+  float: left;
+  text-align: right;
+  display: inline;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.3em 0em;
+}
+ 
+.simpleform div.rightcol {
+  width: 68%;
+  float: right;
+  text-align: left;
+  display: inline;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.3em 0em;
+}
+ 
+.simpleform div.rightcol input {
+  font-size: 1.0em;
+  border: 1px solid #aacfe4;
+  width: 70%;
+}
+ 
+.simpleform div.rightcol span.info {
+  font-size: 0.8em;
+  font-weight: normal;
+  color: #666666;
+}
+ 
+.simpleform div.rightcol input.button {
+  background-color: #FFFFFF;
+  border: 1px solid #999999;
+  border-color: #CCCCCC #CCCCCC #999999 #999999;
+  padding: 0.1em 0.0em;
+  text-align: center;
+  width: 33%;
+}
+ 
+.simpleform div.rightcol input.button:hover {
+  background: #FF9900;
+  color: #FFFFFF;
+}
+ 
+.simpleform div.rightcol input:focus,
+.simpleform div.rightcol select:focus,
+.simpleform div.rightcol textarea:focus {
+  border: 1px solid gray;
+}
+ 
+.simpleform div.rightcol input.errors {
+    border: 1px solid red;
+}
+ 
+/* grails messages and errors */
+.message {
+    background: #f3f8fc url(../images/skin/information.png) 8px 50% no-repeat;
+    border: 1px solid #b2d1ff;
+    color: #006dba;
+    margin: 10px 0 5px 0;
+    padding: 5px 5px 5px 30px
+}
+ 
+div.errors {
+    background: #fff3f3;
+    border: 1px solid red;
+    color: #cc0000;
+    margin: 10px 0 5px 0;
+    padding: 5px 0 5px 0;
+}
+div.errors ul {
+    list-style: none;
+    padding: 0;
+}
+div.errors li {
+    background: url(../images/skin/exclamation.png) 8px 0% no-repeat;
+    line-height: 16px;
+    padding-left: 30px;
+}
+ 
+td.errors select {
+    border: 1px solid red;
+}
+td.errors input {
+    border: 1px solid red;
+}
+
+
+/* ACTION BUTTONS */
+
+.buttons {
+    background-color: #efefef;
+    overflow: hidden;
+    padding: 0.3em;
+       -moz-box-shadow: 0 0 3px 1px #aaaaaa;
+    -webkit-box-shadow: 0 0 3px 1px #aaaaaa;
+            box-shadow: 0 0 3px 1px #aaaaaa;
+    margin: 0.1em 0 0 0;
+    border: none;
+}
+
+.buttons input,
+.buttons a {
+    background-color: transparent;
+    border: 0;
+    color: #666666;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 0.25em 0;
+    overflow: visible;
+    padding: 0.25em 0.7em;
+    text-decoration: none;
+
+       -moz-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+            border-radius: 0.3em;
+}
+
+.buttons input:hover, .buttons input:focus,
+.buttons a:hover, .buttons a:focus {
+    background-color: #999999;
+    color: #ffffff;
+    outline: none;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+       -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+.no-borderradius .buttons input:hover, .no-borderradius .buttons input:focus,
+.no-borderradius .buttons a:hover, .no-borderradius .buttons a:focus {
+    background-color: transparent;
+    color: #444444;
+    text-decoration: underline;
+}
+
+.buttons .delete, .buttons .edit, .buttons .save {
+    background-position: 0.7em center;
+    background-repeat: no-repeat;
+    text-indent: 25px;
+}
+
+.ie6 .buttons input.delete, .ie6 .buttons input.edit, .ie6 .buttons input.save,
+.ie7 .buttons input.delete, .ie7 .buttons input.edit, .ie7 .buttons input.save {
+    padding-left: 36px;
+}
+
+.buttons .delete {
+    background-image: url(../images/skin/database_delete.png);
+}
+
+.buttons .edit {
+    background-image: url(../images/skin/database_edit.png);
+}
+
+.buttons .save {
+    background-image: url(../images/skin/database_save.png);
+}
+
+a.skip {
+    position: absolute;
+    left: -9999px;
+}
