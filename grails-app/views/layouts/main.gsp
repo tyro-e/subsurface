@@ -34,9 +34,9 @@
           <li><g:link controller = "livestream">LIVESTREAM</g:link></li> 
 
           <li style="float: right;">
-                <div class="login-control">
-                  <g:loginControl/>
-                </div>
+            <div class="login-control">
+              <g:loginControl/>
+            </div>
           </li>
         </ul>
       </div>
