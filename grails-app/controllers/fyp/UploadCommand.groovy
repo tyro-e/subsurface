@@ -3,8 +3,8 @@ package fyp
 import grails.validation.Validateable
 import org.springframework.web.multipart.MultipartFile
 
-class FeaturedImageCommand implements Validateable {
-    MultipartFile featuredImageFile
+class UploadCommand implements Validateable {
+    MultipartFile file
     Long id
     Long eventId
     Integer version
@@ -14,7 +14,7 @@ class FeaturedImageCommand implements Validateable {
         version nullable: false
         eventId nullable:false
         
-        featuredImageFile  validator: { val, obj ->
+        file  validator: { val, obj ->
             if ( val == null ) {
                 return false
             }

@@ -17,7 +17,7 @@ class Event  {
     String longitude
     String latitude
 
-    static hasMany = [content:Content]
+    static hasMany = [contents:Content]
 
     static constraints = {
         bandsintown_id unique:true

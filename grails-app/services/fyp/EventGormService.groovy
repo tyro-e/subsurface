@@ -2,7 +2,7 @@ package fyp
 
 import grails.transaction.Transactional
 
-class HotelGormService {
+class EventGormService {
 
     @Transactional(readOnly = true)
     List list(Map params) {
@@ -11,11 +11,11 @@ class HotelGormService {
 
     // tag::updateFeaturedImageUrl[]
     @Transactional
-    Event updateFeaturedImageUrl(Long id, Long eventId, Integer version, String featuredImageUrl) {
+    Event updateUrl(Long id, Long eventId, Integer version, String url) {
         
         Event event = Event.get(eventId)
 
-        def content = new Content(event: event, featuredImageUrl: featuredImageUrl)
+        def content = new Content(event: event, url: url)
 
         if(!content.save(flush:true)){
             content.errors.allErrors.each{

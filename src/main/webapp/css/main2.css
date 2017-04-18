@@ -39,20 +39,21 @@ textarea:focus, input[type="text"]:focus, input:focus {
 .navbar {min-height:28px !important;}
 
 .navbar{
-	border-bottom: 1px solid white !important;
+  border-bottom: 1px solid white !important;
+  margin-bottom: 0 !important;
 }
 
 .navbar-nav{
-	float: none !important;
+  float: none !important;
 }
 
 .navbar-inverse .navbar-nav>li>a:hover{
-	color: red !important;
+  color: red !important;
 }
 
 .navbar-inverse{
-	background-color: transparent !important;
-	border: none !important;
+  background-color: transparent !important;
+  border: none !important;
 }
 
 

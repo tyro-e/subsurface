@@ -1,32 +1,5 @@
 
 
-.content{
-    padding: 0px 27px;
-}
-
-.content-banner{
-  widows: 100%;
-  border: 1px solid white;
-  height: 20vh;
-}
-
-.livestream-title{
-    line-height: 40px;
-}
-
-.livestream-artist{
-    font-size: 60px;
-    color: white;
-}
-
-.livestream-venue{
-    font-size: 40px;
-    display: inline-block;
-    color: white;
-}
-
-
-
 /******** SETLIST ********/
 
 .setlist-section{

@@ -3,9 +3,9 @@ package fyp
 class Content 
 {
 	Event event
-    String featuredImageUrl
+    String url
 
     static constraints = {
-        featuredImageUrl nullable: true
+        url nullable: true
     }
 }

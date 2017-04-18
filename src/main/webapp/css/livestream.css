@@ -21,18 +21,3 @@ button,input,select {
 .content{
     padding: 0px 27px;
 }
-
-.event-title{
-    line-height: 40px;
-}
-
-.event-artist{
-    font-size: 60px;
-    color: white;
-}
-
-.event-venue{
-    font-size: 40px;
-    display: inline-block;
-    color: white;
-}

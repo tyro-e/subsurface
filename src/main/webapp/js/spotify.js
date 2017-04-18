@@ -20,7 +20,7 @@ var searchAlbums = function (query) {
         data: {
             q: query,
             type: 'album',
-            limit: '3'
+            limit: '6'
         },
         success: function (response) {
             resultsPlaceholder.innerHTML = template(response);
