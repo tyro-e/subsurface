@@ -164,6 +164,17 @@ textarea {
     column-gap: 0;
 }
 
+.event-content{
+    border: 1px solid white;
+    margin: 5px;
+}
+
+.content-holder{
+    width: 720px;
+}
+
+
+
 
 /* REMOVE GOOGLE MAPS TEXTS */
 .gmnoprint a, .gmnoprint span {

@@ -4,6 +4,31 @@ $(document).ready(function()
   buildMap();
 });
 
+
+
+ $(document).ready(function(){
+       $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        speed: 250,
+        asNavFor: '.slider-nav'
+      });
+      $('.slider-nav').slick({
+        slidesToShow: 8,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: true,
+        centerMode: true,
+        speed: 250,
+        focusOnSelect: true
+      });
+  
+    });
+
+
+
 $(document).ready(function() 
 {
     var ticketStatus = $('#ticketStatus').html();
@@ -45,8 +70,6 @@ function eventDate(){
     console.log("current date json: " + currentDateJSON);
     console.log("event date normal: " + eventDateNormal);
     console.log("current date normal: " + currentDate);
-
-
 
     if (eventDateJSON > currentDateJSON)
     {
