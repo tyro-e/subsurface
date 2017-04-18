@@ -22,7 +22,7 @@ class UploadCommand implements Validateable {
                 return false
             }
 
-            ['jpeg', 'jpg', 'png'].any { extension -> // <1>
+            ['jpeg', 'jpg', 'png', 'wmv', 'mp4', 'mov'].any { extension -> // <1>
                  val.originalFilename?.toLowerCase()?.endsWith(extension)
             }
         }

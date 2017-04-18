@@ -3,6 +3,8 @@ html{
     overflow-x: hidden;
 }
 
+
+
 .event-page-top{
     background-color: white;
     padding: 0px 27px;
@@ -113,13 +115,26 @@ textarea {
     margin-top: 17px;
 }
 
-#open-room{
+#open-room, #upload-button{
     color: black;
     background-color: transparent;
     border: 1px solid black;
     text-transform: uppercase;
     padding: 10px;
     letter-spacing: 2px;
+    cursor: pointer;
+    text-align: center;
+    float:right;
+}
+
+#upload-button:active{
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+}
+
+#upload-chooser{
+    display: none;
 }
 
 #open-room:hover{
@@ -171,6 +186,10 @@ textarea {
 
 .content-holder{
     width: 720px;
+}
+
+.slick-track{
+    
 }
 
 

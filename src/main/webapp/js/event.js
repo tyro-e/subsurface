@@ -4,6 +4,20 @@ $(document).ready(function()
   buildMap();
 });
 
+(function($) {
+    $.fn.clickToggle = function(func1, func2) {
+        var funcs = [func1, func2];
+        this.data('toggleclicked', 0);
+        this.click(function() {
+            var data = $(this).data();
+            var tc = data.toggleclicked;
+            $.proxy(funcs[tc], this)();
+            data.toggleclicked = (tc + 1) % 2;
+        });
+        return this;
+    };
+}(jQuery));
+
 $(document).ready(function()
 {
    $('.slider-for').slick(
@@ -23,10 +37,28 @@ $(document).ready(function()
       asNavFor: '.slider-for',
       dots: true,
       centerMode: true,
+      centerPadding: '40px',
       speed: 250,
       focusOnSelect: true
   });
+
+
+  $('#upload-button').clickToggle(function()
+  {
+    $('#upload-button').css({'background-color':'black',
+                              'border':'1px solid white',
+                              'color':'white'});
+    $('#upload-chooser').css('display','block');
+  },
+  function()
+  {
+    $('#upload-button').css({'background-color':'white',
+                              'border':'1px solid black',
+                              'color':'black'});
+    $('#upload-chooser').css('display','none');
+  });
 });
+
 
 
 

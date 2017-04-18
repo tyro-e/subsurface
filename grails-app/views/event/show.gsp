@@ -6,6 +6,12 @@
 		<g:set var="entityName" value="${message(code: 'event.label', default: 'Event')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'livestream.css')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'event.css')}" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick-theme.css" rel="stylesheet"/>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick.css" rel="stylesheet"/>
+
+
+		<link rel="stylesheet" href="${resource(dir:'css',file:'ratings.css')}" />
+
 		<rateable:resources/>
 	</head>
 	<body>
@@ -59,26 +65,58 @@
 					</sec:ifAllGranted>
 				</sec:ifLoggedIn>
 
+
+
+
+				<div id = "upload-button">UPLOAD</div>
+				<div id = "upload-chooser">
+					<!-- UPLOAD FORM -->
+		            <g:uploadForm name="upload" action="upload">
+		                <g:hiddenField name="id"        value="${this.event?.id}" />
+		                <g:hiddenField name="eventId"   value="${this.event?.id}" />
+		                <g:hiddenField name="version"   value="${this.event?.version}" />
+		                
+		                <input type="file" name="file" />
+		                <input class="save" type="submit" value="Confirm" />  
+		            </g:uploadForm>
+				</div>
+
 		    </div>
 		</div>
 
 		<div class="below-title">
 			<div id="show-event" class="col-md-9 scaffold-show" role="main" style="padding:0;">	
-				<div class="content">
+				<div class="content" style="padding-left: 0">
 					
 
 					<!-- DISPLAY IMAGES -->
-		            <g:each in="${event.contents}" var="content">
-		            </g:each>
+		    		<div class="content" style="padding-left: 33px;padding-right: 60px;">
+
+			    		<div class="slider-nav">
+						  	<g:each in="${event.contents}" var="content">
+			                	<img height = "50px" class = "event-content" src = "${content.url}" />
+			            	</g:each>
+						</div>
+
+						<div class="content-holder">
+							<div class="slider-for">
+
+								<g:each in="${event.contents}" var="content">
+				                	<img class = "event-content" src = "${content.url}" />
+				            	</g:each>
+
+				            	<!--
+								<g:each in="${event.contents}" var="content">
+				                	<video class = "event-content" controls>
+				                		<source src = "${content.url}" >
+				                	</video>
+				            	</g:each>			
+								-->
+							</div>
+						</div>
+					</div>
 
 
-		            <!-- UPLOAD FORM -->
-		                <g:hiddenField name="id"        value="${this.event?.id}" />
-		                <g:hiddenField name="eventId"   value="${this.event?.id}" />
-		                <g:hiddenField name="version"   value="${this.event?.version}" />
-		                <fieldset class="buttons">
-		                </fieldset>
-		            </g:uploadForm>
 
 
 
@@ -136,16 +174,12 @@
 						</div>
 					</div>
 				</div>
-
-				<div id="map"></div>	
-				
-
 			</div>
 		
-
+			<rateable:ratings bean='${event}'/>
 
 			<!-- SPOTIFY -->
-			<div class="col-md-3" style="padding-right: 0;overflow: hidden;">
+			<div class="col-md-3" style="padding-right: 0;">
 			    <div class="container" style="width:100%;padding-right: 0">
 				    <div id="results"></div>
 				</div>
@@ -155,6 +189,11 @@
 				    {{/each}}
 				</script>
 			</div>
+
+			<div class="col-md-12" style="padding:0;">
+				<div id="map"></div>
+			</div>
+
 		</div>
 
 		<!--
@@ -167,10 +206,14 @@
 		-->
 	
 	<!-- JAVASCRIPTS -->
+	<script src="${resource(dir:'js', file:'event.js')}" type="text/javascript"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    
     <script src="${resource(dir:'js', file:'spotify.js')}" type="text/javascript"></script>
-    <script src="${resource(dir:'js', file:'event.js')}" type="text/javascript"></script>
+    <script src="${resource(dir:'js/plugins', file:'dropzone.js')}" type="text/javascript"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
+    <script src="${resource(dir:'js/plugins', file:'ratings.js')}" type="text/javascript"></script>
     <!-- GOOGLE MAPS API -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPPFxf8JyiTirmJeZvOWSW4z6NePOuEaU"></script>
   </body>

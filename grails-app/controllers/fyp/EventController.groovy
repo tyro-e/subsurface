@@ -14,9 +14,8 @@ class EventController extends RestfulController
 {
     static allowedMethods = [save: "POST", update: "PUT", uploadFeaturedImage: "POST", delete: "DELETE"]
 
-    def uploadHotelFeaturedImageService
-
-    def hotelGormService
+    def uploadEventService
+    def eventGormService
 
     EventController() {
         super(Event)
@@ -65,23 +64,26 @@ class EventController extends RestfulController
         render "${numberEvents} events loaded"
     }
 
-    def uploadFeaturedImage(FeaturedImageCommand cmd) {
-
+    def upload(UploadCommand cmd) {
+        
         if (cmd.hasErrors()) {
-            respond(cmd.errors, model: [event: cmd], view: 'editFeaturedImage')
+            respond(cmd.errors, model: [event: cmd], view: 'show')
             return
         }
 
-        def event = uploadHotelFeaturedImageService.uploadFeatureImage(cmd)
+        def event = uploadEventService.upload(cmd)
         if (event == null) {
             notFound()
             return
         }
 
         if (event.hasErrors()) {
-            respond(event.errors, model: [event: event], view: 'editFeaturedImage')
+            respond(event.errors, model: [event: event], view: 'show')
             return
         }
+        
+
+        
 
         request.withFormat {
             form multipartForm {
@@ -96,7 +98,6 @@ class EventController extends RestfulController
     def showByBandId() 
     {
         def event = Event.findByBandsintown_id( params.id )
-         // add some error handling here in case event isn't found
         redirect ( action: 'show', id: event.id )
     }
 

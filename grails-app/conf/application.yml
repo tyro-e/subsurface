@@ -30,7 +30,12 @@ endpoints:
     enabled: false
     jmx:
         enabled: true
-
+---
+grails:
+    controllers:
+        upload:
+            maxFileSize: 2000000
+            maxRequestSize: 2000000
 ---
 grails:
     mime:
