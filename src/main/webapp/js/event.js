@@ -104,18 +104,26 @@ function eventDate(){
     console.log("event date normal: " + eventDateNormal);
     console.log("current date normal: " + currentDate);
 
+    // if the event has not happened yet, hide/ show these elements
     if (eventDateJSON > currentDateJSON)
     {
       console.log("event happens after today")
 
+      $('.livestream-button').css('display','none');
+
+      // show ticket links
       $('.ticketStatusDiv').css('display','block');
       $('.ticketLinkDiv').css('display','block');
 
-
-      $('.livestream-button').css('display','none');
-
+      // show spotify
       $('.spotify-section').css('display','block');
+
+      // hide setlist
       $('.setlist-section').css('display','none');
+
+      // hide ratings
+      $('.rating-text').css('display','none');
+      $('.rating-field').css('display','none');
 
     }
 
@@ -406,3 +414,5 @@ function eventDate(){
     
     marker.setMap(map);
 }
+
+

@@ -6,6 +6,7 @@
 		<g:set var="entityName" value="${message(code: 'event.label', default: 'Event')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'livestream.css')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'event.css')}" />
+		<link rel="stylesheet" href="${resource(dir:'css',file:'rating.css')}" />
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick-theme.css" rel="stylesheet"/>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick.css" rel="stylesheet"/>
 
@@ -148,21 +149,19 @@
 					<g:if test="${event?.reviews}">
 								
 							<g:each in="${reviewList}" var="r">
-								<div class="col-md-12">
+								<div class="col-md-12" style="margin-top: 15px;">
 									<blockquote class="pull-left">
-										<p>${r.review }</p>
+										<div class="review-text">${r.review }</div>
 										<small>by<cite title="Source Title">${r.author }</cite></small> 
-										Rating <cite title="Source Title">${r.rating }/5</cite>
+										<div class = "rating-text">Rating <cite title="Source Title">${r.rating }/5</cite></div>
 									</blockquote>
 
 									<div class="btn-group-vertical pull-right">
 										<g:if test="${session.user?.role.equals("ROLE_USER")}">
 
-											<g:link class="pulled-left btn btn-info" action="edit" controller="review" id="${r.id }">Edit</g:link>
-
-											<g:form controller="review" action="delete" id="${r.id }" method="DELETE">
+											<g:form controller="review" action="delete" id="${r.id }" method="DELETE" style = "margin-top: 0">
 												<g:hiddenField name="eventId" value="${ event.id}"/>
-												<g:actionSubmit class="pulled-left btn btn-danger" action="delete" value="Delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+												<g:actionSubmit class="btn delete-comment-btn" action="delete" value="X" onclick="return confirm('Are you sure?');" />
 											</g:form>
 										</g:if>
 									</div>

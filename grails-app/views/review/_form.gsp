@@ -1,13 +1,50 @@
 <%@ page import="fyp.Review" %>
-
-<div class="fieldcontain ${hasErrors(bean: review, field: 'rating', 'error')} required">
+<!-- RATING -->
+<div class="fieldcontain ${hasErrors(bean: review, field: 'rating', 'error')}">
 	<div class="form-group">
-	    <label for="rating" class="col-lg-2 control-label">Rating</label>
-	    <div class="col-lg-10">
-	    	<g:select name="rating" from="${1..5}" class="form-control" required="" value="${fieldValue(bean: review, field: 'rating')}"/>
+	    <div class="col-md-7 rating-field" style="float: left;">
+	    	<span class="star-rating star-5">
+		    	<g:radio name="rating" required id="rating-1" value="1"/><i></i>
+		    	<g:radio name="rating" id="rating-2" value="2"/><i></i>
+		    	<g:radio name="rating" id="rating-3" value="3"/><i></i>
+		    	<g:radio name="rating" id="rating-4" value="4"/><i></i>
+		    	<g:radio name="rating" id="rating-5" value="5"/><i></i>
+		    </span>
 	    </div>
     </div>
-</div><%--
+</div>
+
+<!-- REVIEW -->
+<div class="fieldcontain ${hasErrors(bean: review, field: 'review', 'error')}">
+	<div class="form-group">
+        <div class="col-md-8"  style="float: left;"">
+        	<g:textArea required class="form-control review-textarea" rows="3" id="review" name="review" value="${review?.review}"></g:textArea>
+        	<div style = "float: right;margin-top: 3px;">
+	        	<g:if test="${session.user!=null}">
+					<g:submitButton name="create" class="btn post-comment-btn" value="POST" />
+				</g:if>
+
+				<g:if test="${session.user==null}">
+					<div>YOU MUST LOGIN TO TAKE PART</div>
+				</g:if>
+			</div>
+    	</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%--
 
 <div class="fieldcontain ${hasErrors(bean: review, field: 'author', 'error')} required">
 	<label for="author">
@@ -18,14 +55,9 @@
 
 </div>
 
---%><div class="fieldcontain ${hasErrors(bean: review, field: 'review', 'error')} required">
-	<div class="form-group">
-        <label for="textArea" class="col-lg-2 control-label">Review</label>
-        <div class="col-lg-10">
-        	<g:textArea class="form-control" rows="3" id="review" name="review" value="${review?.review}"></g:textArea>
-    	</div>
-	</div>
-</div>
+--%>
+
+
 <%--<div class="fieldcontain ${hasErrors(bean: review, field: 'event', 'error')} required">
 	<label for="event">
 		<g:message code="review.event.label" default="event" />
