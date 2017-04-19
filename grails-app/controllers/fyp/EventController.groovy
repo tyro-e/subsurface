@@ -5,10 +5,8 @@ import grails.converters.*
 import groovyx.net.http.HTTPBuilder
 import static groovyx.net.http.Method.GET
 import static groovyx.net.http.ContentType.JSON
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
-
 
 class EventController extends RestfulController
 {
@@ -108,8 +106,8 @@ class EventController extends RestfulController
     }
     
 
-    def show(Event eventInstance) {
-        respond eventInstance
+    def show(Event event) {
+        respond event, model:[reviewList:event.reviews.sort{it.id} ]
     }
 
     def create() {

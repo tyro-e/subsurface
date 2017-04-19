@@ -142,11 +142,38 @@
 						</g:if>				
 					</div>
 
-					<!-- RATING -->
-					<rateable:ratings bean='${event}'/>
+					<!-- COMMENTS -->
+					<g:render template="createReview"></g:render>
 
-					<!-- COMMENTING -->
-					<comments:render bean="${event}" />
+					<g:if test="${event?.reviews}">
+								
+							<g:each in="${reviewList}" var="r">
+								<div class="col-md-12">
+									<blockquote class="pull-left">
+										<p>${r.review }</p>
+										<small>by<cite title="Source Title">${r.author }</cite></small> 
+										Rating <cite title="Source Title">${r.rating }/5</cite>
+									</blockquote>
+
+									<div class="btn-group-vertical pull-right">
+										<g:if test="${session.user?.role.equals("ROLE_USER")}">
+
+											<g:link class="pulled-left btn btn-info" action="edit" controller="review" id="${r.id }">Edit</g:link>
+
+											<g:form controller="review" action="delete" id="${r.id }" method="DELETE">
+												<g:hiddenField name="eventId" value="${ event.id}"/>
+												<g:actionSubmit class="pulled-left btn btn-danger" action="delete" value="Delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+											</g:form>
+										</g:if>
+									</div>
+
+									<%--<span class="property-value" aria-labelledby="reviews-label"><g:link controller="review" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>--%>
+								</div>
+							</g:each>
+						
+					</g:if>
+					
+
 
 					<!-- LATITUDE & LONGITUDE -->
 					<div class="latitudeAndLongitude">
@@ -186,6 +213,7 @@
 				</div>
 				<!-- SETLIST -->
 				<div class="setlist-section">
+					<!--
 					<form action="" id="add-track-form">
 				      <fieldset>
 				        <input type="text" class="song-title form-inputs" id="title" name="song-title" placeholder="Song Title" required>
@@ -194,7 +222,7 @@
 				      </fieldset>
 				      <button class="add-track-button"  form="add-track-form">Add</button>
 				    </form>
-
+					-->
 				    <div class="setlist" id="sortable-setlist"></div>
 		    	</div>
 			</div>
@@ -223,9 +251,9 @@
     <script src="${resource(dir:'js/plugins', file:'dropzone.js')}" type="text/javascript"></script>
     <!-- SLICK CAROUSEL -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-    <!-- SETLIST -->
+    <!-- SETLIST 
     <script src="https://rubaxa.github.io/Sortable/Sortable.js"></script>
-	<script src="${resource(dir:'js', file:'setlist.js')}" type="text/javascript"></script>
+	<script src="${resource(dir:'js', file:'setlist.js')}" type="text/javascript"></script>-->
     <!-- GOOGLE MAPS API -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPPFxf8JyiTirmJeZvOWSW4z6NePOuEaU"></script>
   </body>

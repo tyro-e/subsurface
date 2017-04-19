@@ -4,8 +4,8 @@
 
   <ul class="rel-results">
     <li ng-repeat="show in details">
-      <div id = "eventTimeConv"></div>
-      <div id = "event-time" class = "event-date-time">{{ show.datetime }}</div>
+      <div class = "eventTimeConv"></div>
+      <div id = "event-time" class = "event-date-time">{{ moment(show.datetime).format('YYYY-MM-DD h:m') }}</div>
       
 
       <div class = "event-item">  

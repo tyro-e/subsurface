@@ -1,7 +1,7 @@
 
 $(document).ready(function() 
 {
-	changeDate();
+	
 });
 
 $("#scroll").click(function() 
@@ -16,16 +16,14 @@ $("#scroll").click(function()
 
 function changeDate()
 {
-    var date = document.getElementById("event-time");
+    var date = document.getElementsByClassName("event-date-time");
   	console.log("event date: " + date)
     var newDate = new Date(date);
     var dateConverted = newDate.toDateString();
 
     console.log("date converted: " + dateConverted);
 
-    var div = document.getElementById("eventTimeConv"); 
-
-    
+    var div = document.getElementById("eventTimeConv");
 }
 
 

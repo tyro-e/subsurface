@@ -75,17 +75,15 @@ app.controller('BandsInTownController', function($scope, $http){
 
   function changeDate()
   {
-    var date = document.getElementById("event-time").innerHTML;
-
-    console.log("event date: " + date);
-
+    var date = document.getElementsByClassName("event-date-time");
+    console.log(date)
     var newDate = new Date(date);
     var dateConverted = newDate.toDateString();
 
-    console.log("date converted: " + dateConverted);
+    console.log(dateConverted);
 
-    var div = document.getElementById("eventTimeConv"); 
-    //div.innerHTML += dateConverted;
+    var div = document.getElementsByClassName("eventTimeConv");
+  
   }
 
 

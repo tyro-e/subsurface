@@ -1,7 +1,5 @@
 package fyp
 
-import org.grails.comments.*
-import org.grails.rateable.*
 import com.amazonaws.services.s3.model.*
 
 class Event  {
@@ -17,7 +15,7 @@ class Event  {
     String longitude
     String latitude
 
-    static hasMany = [contents:Content]
+    static hasMany = [contents:Content, reviews:Review]
 
     static constraints = {
         bandsintown_id unique:true
