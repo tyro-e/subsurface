@@ -46,40 +46,35 @@
 			</div>
 
 			<div class="col-md-2">
-				<sec:ifLoggedIn>
-		    		<sec:ifAllGranted roles="ROLE_ADMIN">
-						<div class="livestream-button">
-						  	<g:form name = "Start" url="[resource:event, action:'update']" method="PUT" >
-				  				<div name="livestream" type="text" id="room-id" value="${event?.livestream}"></div>
-								
-								<div>
-				    				<g:actionSubmit id="open-room" class="save" action="update" value="LIVE" />
-				    			</div>
-			    			</g:form>
+				<div class="livestream-button">
+				  	<g:form name = "Start" url="[resource:event, action:'update']" method="PUT" >
+		  				<div name="livestream" type="text" id="room-id" value="${event?.livestream}"></div>
+						
+						<div>
+		    				<g:actionSubmit id="open-room" class="save" action="update" value="LIVE" />
+		    			</div>
+	    			</g:form>
 
-					    	<button style = "visibility: hidden;" id="join-room">Join</button>
-					    	<button style = "visibility: hidden;" id="open-or-join-room">Auto Start or Join</button>
-					    </div>
-					</sec:ifAllGranted>
-				</sec:ifLoggedIn>
+			    	<button style = "visibility: hidden;" id="join-room">Join</button>
+			    	<button style = "visibility: hidden;" id="open-or-join-room">Auto Start or Join</button>
+			    </div>
 
-
-
-
-				<div id = "upload-button">UPLOAD</div>
-				<div id = "upload-chooser">
-					<!-- UPLOAD FORM -->
-		            <g:uploadForm name="upload" action="upload">
-		                <g:hiddenField name="id"        value="${this.event?.id}" />
-		                <g:hiddenField name="eventId"   value="${this.event?.id}" />
-		                <g:hiddenField name="version"   value="${this.event?.version}" />
-		                
-		                <input type="file" name="file" />
-		                <input class="save" type="submit" value="Confirm" />  
-		            </g:uploadForm>
+			    <div>
+					<div id = "upload-button">UPLOAD</div>
+					<div id = "upload-chooser">
+						<!-- UPLOAD FORM -->
+			            <g:uploadForm name="upload" action="upload">
+			                <g:hiddenField name="id"        value="${this.event?.id}" />
+			                <g:hiddenField name="eventId"   value="${this.event?.id}" />
+			                <g:hiddenField name="version"   value="${this.event?.version}" />
+			                
+			                <input type="file" name="file" />
+			                <input class="save" type="submit" value="Confirm" />  
+			            </g:uploadForm>
+					</div>
 				</div>
-
 		    </div>
+
 		</div>
 
 		<div class="below-title">

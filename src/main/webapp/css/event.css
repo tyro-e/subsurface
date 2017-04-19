@@ -115,7 +115,19 @@ textarea {
     margin-top: 17px;
 }
 
-#open-room, #upload-button{
+#open-room{
+    color: black;
+    background-color: transparent;
+    border: 1px solid black;
+    text-transform: uppercase;
+    padding: 10px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-align: center;
+    float:right;
+}
+
+#upload-button{
     color: black;
     background-color: transparent;
     border: 1px solid black;
