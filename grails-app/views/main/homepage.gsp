@@ -17,7 +17,6 @@
   <!-- ANGULAR JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script> 
-
 </head>
 
 <body>
@@ -51,22 +50,20 @@
           </div>
         </div>
 
-        <div class = "scroll-button-div">
-          <a href="#scroll" style="color:transparent">
-            <img id="scroll-to-arrow" src="https://www.viddyad.com/wp-content/uploads/2016/10/down-arrow.png" style="width: 50px;">
-          </a>
+        <div class = "scroll-button-div" id = "scroll" >
+          <img id="scroll-to-arrow" src="https://www.viddyad.com/wp-content/uploads/2016/10/down-arrow.png" style="width: 50px;">
         </div>
         
         <!-- REGISTER IF NOT LOGGED IN -->
         <sec:ifNotLoggedIn>
           <div class = "register-text" style="text-align: center;">New to the site? 
-            <u style="cursor: pointer;color: rgba(255,255,255,0.4);">Register</u>
+            <g:link controller="user" action="create"  style="cursor: pointer;color: rgba(255,255,255,0.4);">Register</g:link>
           </div>
         </sec:ifNotLoggedIn>
       </div>
 
       <!-- BEGIN PAGE CONTENT -->
-      <div class="homepage-section2" id ="#scroll">
+      <div class="homepage-section2" id ="scrollTo">
         <div class = "container row" style="width: 100%;margin-right: 0;margin-left: 0;padding-right: 0;padding-left: 0;">
           <div class="pure-g">
 

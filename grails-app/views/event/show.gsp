@@ -9,10 +9,7 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick-theme.css" rel="stylesheet"/>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick.css" rel="stylesheet"/>
 
-
-		<link rel="stylesheet" href="${resource(dir:'css',file:'ratings.css')}" />
-
-		<rateable:resources/>
+		<link rel="stylesheet" href="${resource(dir:'css',file:'setlist.css')}" />
 	</head>
 	<body>
 		<div class = "event-page-top col-md-12">
@@ -116,10 +113,6 @@
 						</div>
 					</div>
 
-
-
-
-
 					<!-- LIVESTREAM WINDOW -->
 					<div class="livestream-section">
 
@@ -178,16 +171,32 @@
 		
 			<rateable:ratings bean='${event}'/>
 
-			<!-- SPOTIFY -->
+			
 			<div class="col-md-3" style="padding-right: 0;">
-			    <div class="container" style="width:100%;padding-right: 0">
-				    <div id="results"></div>
+				<!-- SPOTIFY -->
+				<div class="spotify-section">
+				    <div class="container" style="width:100%;padding-right: 0">
+					    <div id="results"></div>
+					</div>
+					<script id="results-template" type="text/x-handlebars-template">
+					    {{#each albums.items}}
+					    <div style="background-image:url({{images.0.url}})" data-album-id="{{id}}" class="cover"></div>
+					    {{/each}}
+					</script>
 				</div>
-				<script id="results-template" type="text/x-handlebars-template">
-				    {{#each albums.items}}
-				    <div style="background-image:url({{images.0.url}})" data-album-id="{{id}}" class="cover"></div>
-				    {{/each}}
-				</script>
+				<!-- SETLIST -->
+				<div class="setlist-section">
+					<form action="" id="add-track-form">
+				      <fieldset>
+				        <input type="text" class="song-title form-inputs" id="title" name="song-title" placeholder="Song Title" required>
+				        <input type="text" class="song-key form-inputs" id="key" name="song-key" placeholder="Key" pattern="[A-Ga-g#♮]+">
+				        <input type="number" min="1" max="350" class="song-tempo form-inputs" id="tempo" name="song-tempo" placeholder="BPM" >
+				      </fieldset>
+				      <button class="add-track-button"  form="add-track-form">Add</button>
+				    </form>
+
+				    <div class="setlist" id="sortable-setlist"></div>
+		    	</div>
 			</div>
 
 			<div class="col-md-12" style="padding:0;">
@@ -207,13 +216,16 @@
 	
 	<!-- JAVASCRIPTS -->
 	<script src="${resource(dir:'js', file:'event.js')}" type="text/javascript"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
-    
+    <!-- SPOTIFY -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="${resource(dir:'js', file:'spotify.js')}" type="text/javascript"></script>
+    <!-- DROPZONE -->
     <script src="${resource(dir:'js/plugins', file:'dropzone.js')}" type="text/javascript"></script>
+    <!-- SLICK CAROUSEL -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-
-    <script src="${resource(dir:'js/plugins', file:'ratings.js')}" type="text/javascript"></script>
+    <!-- SETLIST -->
+    <script src="https://rubaxa.github.io/Sortable/Sortable.js"></script>
+	<script src="${resource(dir:'js', file:'setlist.js')}" type="text/javascript"></script>
     <!-- GOOGLE MAPS API -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPPFxf8JyiTirmJeZvOWSW4z6NePOuEaU"></script>
   </body>

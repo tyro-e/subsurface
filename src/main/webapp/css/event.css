@@ -127,7 +127,13 @@ textarea {
     float:right;
 }
 
-#upload-button:active{
+#open-room:active, #upload-button:active{
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+}
+
+#open-room:hover, #upload-button:hover{
     background-color: black;
     border: 1px solid white;
     color: white;
@@ -135,12 +141,6 @@ textarea {
 
 #upload-chooser{
     display: none;
-}
-
-#open-room:hover{
-    background-color: black;
-    border: 1px solid white;
-    color: white;
 }
 
 #Start{
@@ -159,7 +159,10 @@ textarea {
 #maps{
   position: absolute;
   width: 100%;
-  /*filter: blur(0.5px) invert(1) opacity(0.8) saturate(10);*/
+}
+
+.spotify-section{
+    display: none;
 }
 
 .cover {
@@ -191,8 +194,6 @@ textarea {
 .slick-track{
     
 }
-
-
 
 
 /* REMOVE GOOGLE MAPS TEXTS */

@@ -4,6 +4,16 @@ $(document).ready(function()
 	changeDate();
 });
 
+$("#scroll").click(function() 
+{
+    var scrollTo = $("#scrollTo");
+
+    $('html, body').animate(
+    {
+        scrollTop: scrollTo.offset().top
+    }, 350);
+});
+
 function changeDate()
 {
     var date = document.getElementById("event-time");

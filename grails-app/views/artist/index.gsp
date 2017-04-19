@@ -8,7 +8,7 @@
 		<g:set var="entityName" value="${message(code: 'artist.label', default: 'Artist')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 
-	    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
+	    
 	    <link rel="stylesheet" href="${resource(dir:'css',file:'post-page.css')}" />
 
 	</head>
@@ -58,8 +58,7 @@
 	</div>
 
 
-	<script src="https://rubaxa.github.io/Sortable/Sortable.js"></script>
-	<script src="${resource(dir:'js/post-page', file:'setlist.js')}" type="text/javascript"></script>
+	
 
 	</body>
 

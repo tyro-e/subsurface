@@ -108,16 +108,14 @@ function eventDate(){
     {
       console.log("event happens after today")
 
-      $('#rating_rating').css('display', 'none');
-      $('#rating_form').css('display', 'none');
-      $('#rating_notifytext').css('display','none');
-
       $('.ticketStatusDiv').css('display','block');
       $('.ticketLinkDiv').css('display','block');
 
 
       $('.livestream-button').css('display','none');
 
+      $('.spotify-section').css('display','block');
+      $('.setlist-section').css('display','none');
 
     }
 
