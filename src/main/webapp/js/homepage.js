@@ -25,7 +25,7 @@ function changeDate()
 
     var div = document.getElementById("eventTimeConv"); 
 
-    div.innerHTML += dateConverted;
+    
 }
 
 
@@ -61,5 +61,4 @@ jQuery('img.svg').each(function(){
         $img.replaceWith($svg);
 
     }, 'xml');
-
 });
