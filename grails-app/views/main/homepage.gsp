@@ -49,7 +49,7 @@
         <!-- REGISTER IF NOT LOGGED IN -->
         <sec:ifNotLoggedIn>
           <div class = "register-text" style="text-align: center;">New to the site? 
-            <g:link controller="user" action="create"  style="cursor: pointer;color: rgba(255,255,255,0.4);">Register</g:link>
+            <g:link controller="user" action="create"  style="text-transform: none;cursor: pointer;color: rgba(255,255,255,0.4) !important;">Register</g:link>
           </div>
         </sec:ifNotLoggedIn>
       </div>

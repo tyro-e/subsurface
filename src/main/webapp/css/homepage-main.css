@@ -8,6 +8,10 @@ body {
     outline: none;
 }
 
+a{
+  color: white !important;
+  text-transform: uppercase;
+}
 
 /* REMOVE GOOGLE MAPS TEXTS */
 .gmnoprint a, .gmnoprint span {

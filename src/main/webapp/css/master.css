@@ -2,6 +2,24 @@
     outline: none;
 }
 
+.login-control{
+  color: red !important;
+  padding: 4px 15px;
+}
+
+.test{
+  color: red;
+  text-transform: uppercase;
+
+}
+
+.test:active{
+  color: white !important;
+}
+
+.test:hover{
+  color: white !important;
+}
 html {
     background-color: black;
     height: 100%;
