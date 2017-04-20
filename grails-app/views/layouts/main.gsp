@@ -2,10 +2,7 @@
 <html ng-app="myApp" ng-controller="BandsInTownController">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link rel="shortcut icon" href="">
   <link rel="shortcut icon" href="${createLinkTo(dir:'images',file:'favicon.ico')}" type="image/x-icon" /> 
-
-  
   <title><g:layoutTitle default="SUBSURFACE" /></title>
 
   <!-- STYLESHEETS -->
@@ -16,6 +13,8 @@
   <!-- JAVASCRIPTS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="${resource(dir:'js/plugins/bootstrap', file:'bootstrap.js')}" type="text/javascript"></script>
+    <script src="${resource(dir:'js/plugins', file:'moment.js')}" type="text/javascript"></script>
+  <script src="${resource(dir:'js/plugins', file:'moment.min.js')}" type="text/javascript"></script>
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Bungee|Montserrat+Subrayada|Nunito|Poppins|Work+Sans" rel="stylesheet">
@@ -54,5 +53,7 @@
   <script src="${resource(dir:'js/livestream', file:'socket.io.js')}" type="text/javascript"></script>
   <script src="${resource(dir:'js/livestream', file:'livestream.js')}" type="text/javascript"></script>
   -->
+
+
 </body>
 </html>

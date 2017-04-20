@@ -53,7 +53,7 @@ class ReviewController extends ControllerTemplate{
 
         if(user != review.author){
             flash.message="You can only edit your own review"
-             redirect(action:'show',controller:'event', id:review.event.id)
+            redirect(action:'show',controller:'event', id:review.event.id)
         }else{
             respond review
         }

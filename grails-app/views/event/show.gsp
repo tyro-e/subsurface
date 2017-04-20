@@ -7,10 +7,9 @@
 		<link rel="stylesheet" href="${resource(dir:'css',file:'livestream.css')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'event.css')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'rating.css')}" />
+		<link rel="stylesheet" href="${resource(dir:'css',file:'setlist.css')}" />
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick-theme.css" rel="stylesheet"/>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick.css" rel="stylesheet"/>
-
-		<link rel="stylesheet" href="${resource(dir:'css',file:'setlist.css')}" />
 	</head>
 	<body>
 		<div class = "event-page-top col-md-12">
@@ -74,7 +73,6 @@
 					</div>
 				</div>
 		    </div>
-
 		</div>
 
 		<div class="below-title">
@@ -143,28 +141,27 @@
 
 					<g:if test="${event?.reviews}">
 								
-							<g:each in="${reviewList}" var="r">
-								<div class="col-md-12" style="margin-top: 15px;">
-									<blockquote class="pull-left">
-										<div class="review-text">${r.review }</div>
-										<small>by<cite title="Source Title">${r.author }</cite></small> 
-										<div class = "rating-text">Rating <cite title="Source Title">${r.rating }/5</cite></div>
-									</blockquote>
+						<g:each in="${reviewList}" var="r">
+							<div class="col-md-12" style="margin-top: 15px;">
+								<blockquote class="pull-left">
+									<div class="review-text">${r.review }</div>
+									<small>by<cite title="Source Title">${r.author }</cite></small> 
+									<div class = "rating-text">Rating <cite title="Source Title">${r.rating }/5</cite></div>
+								</blockquote>
 
-									<div class="btn-group-vertical pull-right">
-										<g:if test="${session.user?.role.equals("ROLE_USER")}">
+								<div class="btn-group-vertical pull-right">
+									<g:if test="${session.user?.role.equals("ROLE_USER")}">
 
-											<g:form controller="review" action="delete" id="${r.id }" method="DELETE" style = "margin-top: 0">
-												<g:hiddenField name="eventId" value="${ event.id}"/>
-												<g:actionSubmit class="btn delete-comment-btn" action="delete" value="X" onclick="return confirm('Are you sure?');" />
-											</g:form>
-										</g:if>
-									</div>
-
-									<%--<span class="property-value" aria-labelledby="reviews-label"><g:link controller="review" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>--%>
+										<g:form controller="review" action="delete" id="${r.id }" method="DELETE" style = "margin-top: 0">
+											<g:hiddenField name="eventId" value="${ event.id}"/>
+											<g:actionSubmit class="btn delete-comment-btn" action="delete" value="X" onclick="return confirm('Are you sure?');" />
+										</g:form>
+									</g:if>
 								</div>
-							</g:each>
-						
+
+								<%--<span class="property-value" aria-labelledby="reviews-label"><g:link controller="review" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>--%>
+							</div>
+						</g:each>
 					</g:if>
 					
 
@@ -189,11 +186,9 @@
 					</div>
 				</div>
 			</div>
-		
-			<rateable:ratings bean='${event}'/>
-
-			
+					
 			<div class="col-md-3" style="padding-right: 0;">
+
 				<!-- SPOTIFY -->
 				<div class="spotify-section">
 				    <div class="container" style="width:100%;padding-right: 0">
@@ -205,18 +200,16 @@
 					    {{/each}}
 					</script>
 				</div>
+
 				<!-- SETLIST -->
 				<div class="setlist-section">
-					<!--
 					<form action="" id="add-track-form">
-				      <fieldset>
-				        <input type="text" class="song-title form-inputs" id="title" name="song-title" placeholder="Song Title" required>
-				        <input type="text" class="song-key form-inputs" id="key" name="song-key" placeholder="Key" pattern="[A-Ga-g#♮]+">
-				        <input type="number" min="1" max="350" class="song-tempo form-inputs" id="tempo" name="song-tempo" placeholder="BPM" >
-				      </fieldset>
-				      <button class="add-track-button"  form="add-track-form">Add</button>
+
+				    	<input type="text" class="song-title form-inputs" id="title" name="song-title" placeholder="Song Title" required>
+				    	<button class="add-track-button" form="add-track-form">Add</button>
+
 				    </form>
-					-->
+					
 				    <div class="setlist" id="sortable-setlist"></div>
 		    	</div>
 			</div>
@@ -224,7 +217,6 @@
 			<div class="col-md-12" style="padding:0;">
 				<div id="map"></div>
 			</div>
-
 		</div>
 
 		<!--
@@ -245,9 +237,9 @@
     <script src="${resource(dir:'js/plugins', file:'dropzone.js')}" type="text/javascript"></script>
     <!-- SLICK CAROUSEL -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-    <!-- SETLIST 
+    <!-- SETLIST -->
     <script src="https://rubaxa.github.io/Sortable/Sortable.js"></script>
-	<script src="${resource(dir:'js', file:'setlist.js')}" type="text/javascript"></script>-->
+	<script src="${resource(dir:'js', file:'setlist.js')}" type="text/javascript"></script>
     <!-- GOOGLE MAPS API -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPPFxf8JyiTirmJeZvOWSW4z6NePOuEaU"></script>
   </body>

@@ -79,7 +79,7 @@
             </div>
 
             <!-- RIGHT -->
-            <div id="main-info" class = "col-md-3" >
+            <div id="main-info" class = "col-md-3" style="padding-left: 0" >
               <g:render template = "partials/main-info" />
             </div>
 
@@ -103,9 +103,6 @@
 <!-- JS FILES -->
 <script src="${resource(dir:'js', file:'app.js')}" type="text/javascript"></script>
 <script src="${resource(dir:'js', file:'homepage.js')}" type="text/javascript"></script>
-<script src="${resource(dir:'js/plugins', file:'moment.js')}" type="text/javascript"></script>
-<script src="${resource(dir:'js/plugins', file:'moment.min.js')}" type="text/javascript"></script>
-
 
 <!-- GOOGLE MAPS API -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPPFxf8JyiTirmJeZvOWSW4z6NePOuEaU"></script>

@@ -21,7 +21,7 @@
         	<g:textArea required class="form-control review-textarea" rows="3" id="review" name="review" value="${review?.review}"></g:textArea>
         	<div style = "float: right;margin-top: 3px;">
 	        	<g:if test="${session.user!=null}">
-					<g:submitButton name="create" class="btn post-comment-btn" value="POST" />
+					<g:submitButton name="create1" class="btn post-comment-btn" value="POST" />
 				</g:if>
 
 				<g:if test="${session.user==null}">

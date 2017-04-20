@@ -25,7 +25,6 @@ var searchAlbums = function (query) {
         success: function (response) {
             resultsPlaceholder.innerHTML = template(response);
             var numItems = $('.cover').length;
-            console.log(numItems)
 
             if (numItems == 1){
                 $("#results").css('column-count','1');

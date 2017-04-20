@@ -5,9 +5,8 @@
   <ul class="rel-results">
     <li ng-repeat="show in details">
       <div class = "eventTimeConv"></div>
-      <div id = "event-time" class = "event-date-time">{{ moment(show.datetime).format('YYYY-MM-DD h:m') }}</div>
+      <div id = "event-time" class = "event-date-time">{{ (show.datetime).substring(5, 10) }}</div>
       
-
       <div class = "event-item">  
         <div class = "artistAndVenue col-md-9" style="margin-left: 0;margin-right: 0">
           <span class="artist-name row">

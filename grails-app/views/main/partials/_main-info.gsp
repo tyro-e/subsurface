@@ -35,11 +35,7 @@
         <i class="fa fa-external-link"></i>
       </a>
     </span>
-  </div>
-  <!-- BUTTONS -->
-  <div>
-    <button class = "button-main more-info-button">MORE INFO</button>
-  </div>   
+  </div>    
 
 </div>
 

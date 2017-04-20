@@ -1,59 +1,5 @@
 var SetList = {};
 
-// get existing setlist
-SetList.getSetlist = function() {
-	$.get('/setlist', function(data) {
-		SetList.renderTracks(data.tracks);
-	});
-};
-
-// post new track
-SetList.addTrack = function(newTrack) {
-	$.ajax({
-	  type: "POST",
-	  url: '/track',
-	  data: JSON.stringify({track: newTrack}),
-	  // grab the ._id of the added track from DB response and 
-	  // add add it as a 'data-id' property 
-	  // to the corresponding DOM element
-	  success: function(data) {
-	  	var newTrackId = data.tracks[data.tracks.length-1]._id;
-	  	$('.track').last().attr('data-id', newTrackId);
-	  },
-	  contentType: 'application/json',
-	  dataType: 'json'
-	});
-};
-
-// edit existing track
-SetList.editTrack = function(trackId, trackData) {
-		$.ajax({
-	  type: "PUT",
-	  url: '/track/' + trackId, 
-	  data: JSON.stringify({track: trackData}),
-	  contentType: 'application/json',
-	  dataType: 'json'
-	});
-};
-
-// edit setlist order
-SetList.editSetlist = function(idArray) {
-		$.ajax({
-	  type: "PUT",
-	  url: '/setlist', 
-	  data: JSON.stringify({trackIds: idArray}),
-	  contentType: 'application/json',
-	  dataType: 'json'
-	});
-};
-
-// delete existing track
-SetList.deleteTrack = function(trackId) {
-		$.ajax({
-	  type: "DELETE",
-	  url: '/track/' + trackId,
-	});
-};
 
 // rendering function
 SetList.renderTracks = function(tracks) {
@@ -75,7 +21,7 @@ SetList.renderTracks = function(tracks) {
 				// rename track0item
 				'<div class="track-item-container">' +
 					'<input alt="delete button" name="delete-button" class="delete-button">' +
-					'<p class="track" data-id="' + tracks[i]._id + '">' + '<strong><span class="trackName" onclick="this.contentEditable=true;this.focus()">' + song.trackName + '</span> -  <span class="key" onclick="this.contentEditable=true;this.focus()" pattern="[A-Ga-g#♮]+">' + song.key + '</span> - <span class="bpm" onclick="this.contentEditable=true;this.focus()">' + song.bpm + '</span></strong></p>' + 
+					'<p class="track" data-id="' + tracks[i]._id + '">' + '<strong><span class="trackName" onclick="this.contentEditable=true;this.focus()">' + song.trackName + '</span></strong></p>' + 
 				'</div>'
 			);
 		}
@@ -92,9 +38,7 @@ SetList.watchAddTrack = function() {
 		var form = $(this);
 		var song = {tracks: 
 			[{
-				trackName: form.find('#title').val(),
-				key: form.find('#key').val(),
-				bpm: form.find('#tempo').val()
+				trackName: form.find('#title').val()
 			}]
 		};
 		// send data to DB
@@ -125,8 +69,6 @@ SetList.watchUpdateTrack = function() {
 		updateTimer = setTimeout(function() {
 			var trackData = {
 				trackName: that.parent().find('.trackName').html(),
-				key: that.parent().find('.key').html(),
-				bpm: that.parent().find('.bpm').html(),
 				id: trackId
 			};
 			SetList.editTrack(trackId, trackData);
@@ -174,7 +116,6 @@ SetList.watchDeleteTrack = function() {
 };
 
 $(function() {
-	SetList.getSetlist();
 	SetList.watchAddTrack();
 	SetList.watchUpdateTrack();
 	SetList.watchReorderSetlist();
