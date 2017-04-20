@@ -283,3 +283,10 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 }
 
 
+
+.listings-top{
+    color: red;
+    background-color: white;
+    font-size: 60px;
+    padding: 40px 15px;
+}

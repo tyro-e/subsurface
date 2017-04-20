@@ -3,15 +3,19 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+		<link rel="stylesheet" href="${resource(dir:'css',file:'event.css')}" />
 	</head>
-	<body>
-		<div id="list-event" class="content scaffold-list" role="main">
-			<table>
+	<body style="background-color: white !important">
+		<div class="col-md-12 listings-top">
+			LISTINGS
+		</div>
+
+		<div style="padding:15px">
+			<table style="width: 100%;">
 				<thead>
 					<tr>						
 						<g:sortableColumn property="artist" title="WHO" />
 						<g:sortableColumn property="eventTime" title="WHEN" />
-						
 						<g:sortableColumn property="venue" title="WHERE" />
 					</tr>
 				</thead>

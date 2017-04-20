@@ -80,9 +80,6 @@ class EventController extends RestfulController
             return
         }
         
-
-        
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'event.label', default: 'Event'), event.id])
@@ -101,8 +98,17 @@ class EventController extends RestfulController
 
     def index(Integer max) 
     {
-        params.max = Math.min(max ?: 10, 100)
-        respond Event.list(params), model:[eventInstanceCount: Event.count()]
+        int eventCount = Event.count()
+        int startingPoint = eventCount - 50
+
+        def events = Event.createCriteria().list
+        {
+            order('eventTime')
+            firstResult(1)
+            
+        }
+        
+        respond events
     }
     
 

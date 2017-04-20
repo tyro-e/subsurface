@@ -164,8 +164,6 @@
 						</g:each>
 					</g:if>
 					
-
-
 					<!-- LATITUDE & LONGITUDE -->
 					<div class="latitudeAndLongitude">
 						<div>
@@ -237,9 +235,9 @@
     <script src="${resource(dir:'js/plugins', file:'dropzone.js')}" type="text/javascript"></script>
     <!-- SLICK CAROUSEL -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-    <!-- SETLIST -->
+    <!-- SETLIST 
     <script src="https://rubaxa.github.io/Sortable/Sortable.js"></script>
-	<script src="${resource(dir:'js', file:'setlist.js')}" type="text/javascript"></script>
+	<script src="${resource(dir:'js', file:'setlist.js')}" type="text/javascript"></script>-->
     <!-- GOOGLE MAPS API -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPPFxf8JyiTirmJeZvOWSW4z6NePOuEaU"></script>
   </body>
