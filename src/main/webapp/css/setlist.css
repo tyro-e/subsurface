@@ -45,12 +45,13 @@ button {
   text-align: left;
   margin: 40px auto;
   max-width: 350px;
-  color: black;
+  color: white;
   padding-left: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
   height: 500px;
   border: 1px solid white;
+
 }
 
 .sortable-ghost {

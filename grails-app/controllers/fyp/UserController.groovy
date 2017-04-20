@@ -9,8 +9,6 @@ class UserController {
     
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-
-
     def login(){}
     
     def authenticate(){
@@ -22,13 +20,13 @@ class UserController {
         }
 
         else{
-            flash.message= "Sorry, ${params.email}. Try again"
+            flash.message= "TRY AGAIN"
             redirect(action:"login")
         }
     }
     
     def logout(){
-        flash.message="Goodbye ${session.user.fullName}"
+        flash.message="BYE"
         session.user = null
         redirect(controller:"main")
     }
@@ -69,6 +67,7 @@ class UserController {
 
         if (userInstance.hasErrors()) {
             respond userInstance.errors, view:'create'
+            flash.message = "YOU NEED TO TRY THAT AGAIN"
             return
         }
 
@@ -76,8 +75,8 @@ class UserController {
 
         request.withFormat {
             form {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'userInstance.label', default: 'User'), userInstance.id])
-                redirect(controller:'main')
+                flash.message = "NOW SIGN IN"
+                redirect(action:'login')
             }
             '*' { respond userInstance, [status: CREATED] }
         }

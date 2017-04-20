@@ -205,8 +205,8 @@
 				<div class="setlist-section">
 					<form action="" id="add-track-form">
 
-				    	<input type="text" class="song-title form-inputs" id="title" name="song-title" placeholder="Song Title" required>
-				    	<button class="add-track-button" form="add-track-form">Add</button>
+				    	<input type="text" class="song-title form-inputs" id="title" placeholder="Track name" required autocomplete="off">
+				    	<button class="add-track-button" >Add</button>
 
 				    </form>
 					
