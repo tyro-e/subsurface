@@ -24,6 +24,18 @@ var searchAlbums = function (query) {
         },
         success: function (response) {
             resultsPlaceholder.innerHTML = template(response);
+            var numItems = $('.cover').length;
+            console.log(numItems)
+
+            if (numItems == 1){
+                $("#results").css('column-count','1');
+                $('.cover').css('float','right');
+            }
+
+            if (numItems == 3){
+                $("#results").css('column-count','1');
+                $('.cover').css('float','right');
+            }
         }
     });
 };
@@ -54,4 +66,10 @@ results.addEventListener('click', function (e) {
 
 window.onload = function(){
     searchAlbums(document.getElementById('artistName').innerHTML);
+
+    
 };
+
+function countCovers() {
+    
+}

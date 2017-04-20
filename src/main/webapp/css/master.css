@@ -2,6 +2,11 @@
     outline: none;
 }
 
+a{
+  color: white !important;
+  text-transform: uppercase;
+}
+
 .login-control{
   color: red !important;
   padding: 4px 15px;

@@ -33,6 +33,10 @@ html{
     font-size: 35px;
 }
 
+#show-event{
+    padding: 0 27px;
+}
+
 .ticketLinkDiv{
     margin-top: 25px;
     display: none;
@@ -226,7 +230,6 @@ textarea {
     color: white;
     font-size: 40px;
     letter-spacing: 1px;
-    padding-left: 15px;
 }
 
 .post-comment-btn{

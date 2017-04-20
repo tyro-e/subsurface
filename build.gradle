@@ -49,25 +49,12 @@ dependencies {
 
 
     runtime 'mysql:mysql-connector-java:5.1.36'
-    //build ":tomcat:7.0.47"
-    //compile ":scaffolding:2.0.1"
-    //compile ':cache:1.1.1'
-    //compile "org.grails.plugins:asset-pipeline:2.7.4"
     compile 'org.grails.plugins:http-builder-helper:1.0.2'
-    //compile ":ajax-uploader:1.1"
     compile 'org.grails.plugins:aws-sdk-s3:2.1.5'
-    //compile ":quartz:1.0-RC2"
     compile "commons-io:commons-io:1.4"
-    //runtime ":hibernate:3.6.10.6" // or ":hibernate4:4.1.11.6"
     compile 'org.grails.plugins:database-migration:3.0.0'
     runtime "org.grails.plugins:jquery:1.11.1"
-    //runtime ":resources:1.2.1"
-    //compile 'org.grails.plugins:spring-security-core:3.1.1'
-   // runtime "org.grails.plugins:cors:1.1.8"
     compile "org.grails.plugins:webxml:1.4.1"
-
-    //compile "org.grails.plugins:commentable:0.8.1"
-    //compile "org.grails.plugins:rateable:0.7.1"
 }
 
 bootRun {

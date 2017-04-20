@@ -78,12 +78,12 @@
 		</div>
 
 		<div class="below-title">
-			<div id="show-event" class="col-md-9 scaffold-show" role="main" style="padding:0;">	
+			<div id="show-event" class="col-md-9 scaffold-show" role="main">	
 				<div class="content" style="padding-left: 0">
 					
 
 					<!-- DISPLAY IMAGES -->
-		    		<div class="content" style="padding-left: 33px;padding-right: 60px;">
+		    		<div class="content" style="padding-left: 0px;padding-right: 60px;">
 
 			    		<div class="slider-nav">
 						  	<g:each in="${event.contents}" var="content">
