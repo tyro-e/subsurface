@@ -109,6 +109,18 @@ class EventController extends RestfulController
         }
         
         respond events
+
+    }
+
+    def search()
+    {
+        def events = Event.createCriteria().list
+        {
+            def query = params.query
+            like("artist", query)
+        }
+
+        respond events
     }
     
 
