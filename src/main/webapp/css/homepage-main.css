@@ -368,6 +368,9 @@ ul.rel-results {
 	font-size: 50px;
 	padding: 0;
 	width: 85%;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
 }
 
 .event-main-info{

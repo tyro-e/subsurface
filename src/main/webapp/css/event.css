@@ -290,3 +290,30 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
     font-size: 60px;
     padding: 40px 15px;
 }
+
+.archive-search{
+    background-color: black;
+    border: 1px solid white;
+    font-size: 45px;
+    width: 100%;
+    margin-top: 2px;
+    color: white;
+}
+
+.archive-button{
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    padding: 6px;
+    float: right;
+}
+
+.archive-button:hover{
+    color: black;
+    background-color: white;
+}
+
+.sticky{
+    position: relative;
+    width: 100%;
+}

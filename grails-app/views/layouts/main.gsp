@@ -13,7 +13,7 @@
   <!-- JAVASCRIPTS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="${resource(dir:'js/plugins/bootstrap', file:'bootstrap.js')}" type="text/javascript"></script>
-    <script src="${resource(dir:'js/plugins', file:'moment.js')}" type="text/javascript"></script>
+  <script src="${resource(dir:'js/plugins', file:'moment.js')}" type="text/javascript"></script>
   <script src="${resource(dir:'js/plugins', file:'moment.min.js')}" type="text/javascript"></script>
 
   <!-- GOOGLE FONTS -->
@@ -29,10 +29,8 @@
       <div class="container-fluid">
         <ul class="nav navbar-nav">
           <li><g:link controller = "main" style="font-size: 18px;font-weight: 600;">SUBSURFACE</g:link></li>
-          <li><g:link controller = "event">UPCOMING</g:link></li> 
-          <li><g:link controller = "artist">ARTISTS</g:link></li>
-          <li><g:link controller = "venue">VENUES</g:link></li> 
-          <li><g:link controller = "livestream">LIVESTREAM</g:link></li> 
+          <li><a href="/main/homepage#scrollTo">UPCOMING</a> 
+          <li><g:link controller = "event">ARCHIVE</g:link></li>
 
           <li style="float: right;">
             <div class="login-control">
@@ -48,12 +46,11 @@
       <g:layoutBody />
     </div>
   </div>
+
   <!--
   <script src="${resource(dir:'js/livestream', file:'RTCMultiConnection.js')}" type="text/javascript"></script>
   <script src="${resource(dir:'js/livestream', file:'socket.io.js')}" type="text/javascript"></script>
   <script src="${resource(dir:'js/livestream', file:'livestream.js')}" type="text/javascript"></script>
   -->
-
-
 </body>
 </html>
