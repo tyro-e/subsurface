@@ -46,11 +46,5 @@
       <g:layoutBody />
     </div>
   </div>
-
-  <!--
-  <script src="${resource(dir:'js/livestream', file:'RTCMultiConnection.js')}" type="text/javascript"></script>
-  <script src="${resource(dir:'js/livestream', file:'socket.io.js')}" type="text/javascript"></script>
-  <script src="${resource(dir:'js/livestream', file:'livestream.js')}" type="text/javascript"></script>
-  -->
 </body>
 </html>

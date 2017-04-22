@@ -2,12 +2,24 @@ package fyp
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import groovy.sql.Sql
 
 @Transactional(readOnly = true)
 class UserController {
 
-    
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", getEmails: "GET"]
+
+    def sessionFactory
+
+    def getEmails() {
+        def sql = new Sql(sessionFactory.currentSession.connection())
+        sql.execute("SELECT email FROM user") 
+
+        render(contentType:"application/json") {
+            //render your DB query results as JSON
+            //you could also use JsonBuilder to render JSON output
+        }
+    }
 
     def login(){}
     

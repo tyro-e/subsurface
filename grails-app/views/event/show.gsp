@@ -10,10 +10,23 @@
 		<link rel="stylesheet" href="${resource(dir:'css',file:'setlist.css')}" />
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick-theme.css" rel="stylesheet"/>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick.css" rel="stylesheet"/>
+		<script type="text/javascript" src="http://l2.io/ip.js?var=myip"></script>
+		<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+		<script type="text/javascript">
+		   (function(){
+		      emailjs.init("user_APMufY2ao4hLbOYmzZoeL");
+		   })();
+		</script>
+
 	</head>
 	<body>
 		<div class = "event-page-top col-md-12">
 			<div class="event-title col-md-10">
+				<g:if test="${event?.id}">
+					<span class="property-value event-id" id = "eventId" aria-labelledby="id-label">
+						<g:fieldValue bean="${event}" field="id"/>
+					</span>
+				</g:if>
 				<!-- ARTIST -->
 				<div>
 					<g:if test="${event?.artist}">
@@ -50,13 +63,15 @@
 		  				<div name="livestream" type="text" id="room-id" value="${event?.livestream}"></div>
 						
 						<div>
-		    				<g:actionSubmit id="open-room" class="save" action="update" value="LIVE" />
+		    				<input id="open-room" class="save" action="update" value="LIVE" />
 		    			</div>
 	    			</g:form>
 
 			    	<button style = "visibility: hidden;" id="join-room">Join</button>
 			    	<button style = "visibility: hidden;" id="open-or-join-room">Auto Start or Join</button>
 			    </div>
+
+			    <input id = "get-emails" onclick="getEmails()" value = "EMAILS" />
 
 			    <div>
 					<div id = "upload-button">UPLOAD</div>
@@ -215,6 +230,8 @@
 			<div class="col-md-12" style="padding:0;">
 				<div id="map"></div>
 			</div>
+
+
 		</div>
 
 		<!--
@@ -225,7 +242,6 @@
 			</fieldset>
 		</g:form>
 		-->
-	
 	<!-- JAVASCRIPTS -->
 	<script src="${resource(dir:'js', file:'event.js')}" type="text/javascript"></script>
     <!-- SPOTIFY -->
@@ -240,5 +256,9 @@
 	<script src="${resource(dir:'js', file:'setlist.js')}" type="text/javascript"></script>-->
     <!-- GOOGLE MAPS API -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPPFxf8JyiTirmJeZvOWSW4z6NePOuEaU"></script>
-  </body>
+	<!-- LIVESTREAMING -->
+	<script src="${resource(dir:'js/livestream', file:'RTCMultiConnection.js')}" type="text/javascript"></script>
+	<script src="${resource(dir:'js/livestream', file:'socket.io.js')}" type="text/javascript"></script>
+	<script src="${resource(dir:'js/livestream', file:'livestream.js')}" type="text/javascript"></script>
+	</body>
 </html>

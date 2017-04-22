@@ -18,10 +18,8 @@ $(document).ready(function()
     };
 }(jQuery));
 
-$(document).ready(function()
-{
-   $('.slider-for').slick(
-   {
+$(document).ready(function(){
+   $('.slider-for').slick(   {
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
@@ -30,8 +28,7 @@ $(document).ready(function()
       asNavFor: '.slider-nav'
   });
 
-  $('.slider-nav').slick(
-  {
+  $('.slider-nav').slick({
       slidesToShow: 8,
       slidesToScroll: 1,
       asNavFor: '.slider-for',
@@ -42,16 +39,14 @@ $(document).ready(function()
       focusOnSelect: true
   });
 
-
-  $('#upload-button').clickToggle(function()
-  {
+  $('#upload-button').clickToggle(function(){
     $('#upload-button').css({'background-color':'black',
                               'border':'1px solid white',
                               'color':'white'});
     $('#upload-chooser').css('display','block');
   },
-  function()
-  {
+
+  function(){
     $('#upload-button').css({'background-color':'white',
                               'border':'1px solid black',
                               'color':'black'});
@@ -59,11 +54,7 @@ $(document).ready(function()
   });
 });
 
-
-
-
-$(document).ready(function() 
-{
+$(document).ready(function() {
     var ticketStatus = $('#ticketStatus').html();
     var length = ticketStatus.length;
 
@@ -79,8 +70,7 @@ $(document).ready(function()
     }
 });
 
-$(document).ready(function() 
-{
+$(document).ready(function() {
     var ticketUrl = $('.ticketUrl').html();
     var link = $('#ticket_url_append');
     link.attr('href', ticketUrl);
@@ -107,8 +97,9 @@ function eventDate(){
     // if the event has not happened yet, hide/ show these elements
     if (eventDateJSON > currentDateJSON)
     {
-      console.log("event happens after today")
+      console.log("event has not happened yet")
 
+      // hide livestream
       $('.livestream-button').css('display','none');
 
       // show ticket links
@@ -130,12 +121,14 @@ function eventDate(){
     if (eventDateJSON < currentDateJSON)
     {
       console.log("event has happened")
-      $('.livestream-button').css('display','none');
+
+      $('.livestream-button').css('display','block');
     }
 
     if (eventDateJSON = currentDateJSON)
     {
       console.log("event is today")
+
       $('.livestream-button').css('display','block');
     }
 }
