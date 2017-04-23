@@ -43,12 +43,14 @@ app.controller('BandsInTownController', function($scope, $http){
         }, 0);
 
         $('.twitter-background').css('display','none');
+        $('.calendar-background').css('display','block');
         defaultMap();
       });    
     }
 
     else{
       console.log("fetch: " + $scope.search);
+
 
       // search the API based on user input
       $.getJSON("http://api.bandsintown.com/artists/" + $scope.search + "/events/search.json?&api_version=2.0&app_id=FYP&location=Dublin,Ireland", function(result) 
@@ -57,8 +59,9 @@ app.controller('BandsInTownController', function($scope, $http){
         {
           console.log("fetching 2");
           $scope.details = result;
+
           angular.element('#main-info').css('display', 'block');
-          $('.twitter-background').css('display','inline-block');
+          $('.twitter-background').css('display','inline-block');  
         }, 0);
 
         // remove the map if no artist was found
@@ -329,6 +332,7 @@ app.controller('BandsInTownController', function($scope, $http){
   
   function buildMap(){
     console.log("buildMap");
+    $('.rsvp').css('display','none');
     // building the content within the info window
     var contentString = "<strong>" + $scope.details[0].title + "</strong><br>&nbsp;<span>" + $scope.details[0].formatted_datetime + "</span>";
 
@@ -596,8 +600,6 @@ app.controller('BandsInTownController', function($scope, $http){
         content: contentString
       });
 
-      
-      
       // setting the attibutes for the map marker
       var marker = new google.maps.Marker({
         position: myLatLng,

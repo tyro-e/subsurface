@@ -151,6 +151,12 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
    cursor: pointer;
 }
 
+#scroll-to-arrow:hover{
+  background-color: rgba(255,255,255, 0.1);
+  border-radius: 100px;
+  transition: ease-out 0.2s;
+}
+
 .homepage-section2{
 	background-color: white;
   	height: 100vh;
@@ -263,6 +269,7 @@ ul.rel-results {
 
 .button-main:hover{
   border: 1px solid red;
+  transition: ease-out 0.2s;
 }
 
 .more-info-button{
