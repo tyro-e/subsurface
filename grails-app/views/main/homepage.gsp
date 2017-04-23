@@ -26,13 +26,6 @@
           <source src="https://s3-eu-west-1.amazonaws.com/fyp-subsurface/homepage/homepage-video.mp4" type="video/mp4">
         </video>
 
-        <!-- ROOM URL -->
-        <div id="room-id"></div>
-        <button id="open-room"></button>
-        <button id="join-room">Join</button>
-        <button id="open-or-join-room">Auto Start or Join</button>
-        <div id="room-urls" style="display: none;"></div>
-
         <div class="homepage-top-main-container">
           <div class="row" style="margin-bottom: 15px;">
             <div class = "col-md-12">

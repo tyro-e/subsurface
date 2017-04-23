@@ -25,6 +25,7 @@ app.controller('BandsInTownController', function($scope, $http){
     else{
       removeMap();
       $scope.details = "empty";
+      fetch();
     }
   };
 
@@ -41,8 +42,8 @@ app.controller('BandsInTownController', function($scope, $http){
           $scope.details = result;
         }, 0);
 
-        defaultMap();   
-        changeDate();
+        $('.twitter-background').css('display','none');
+        defaultMap();
       });    
     }
 
@@ -57,6 +58,7 @@ app.controller('BandsInTownController', function($scope, $http){
           console.log("fetching 2");
           $scope.details = result;
           angular.element('#main-info').css('display', 'block');
+          $('.twitter-background').css('display','inline-block');
         }, 0);
 
         // remove the map if no artist was found
@@ -72,21 +74,6 @@ app.controller('BandsInTownController', function($scope, $http){
       });   
     } 
   }
-
-  function changeDate()
-  {
-    var date = document.getElementsByClassName("event-date-time");
-    console.log(date)
-    var newDate = new Date(date);
-    var dateConverted = newDate.toDateString();
-
-    console.log(dateConverted);
-
-    var div = document.getElementsByClassName("eventTimeConv");
-  
-  }
-
-
 
 
   function defaultMap(){
@@ -650,7 +637,6 @@ app.controller('BandsInTownController', function($scope, $http){
       return c-d; 
     });
 
-    
     // pull the selected show out of the array of shows
     for(var i = 0; i < $scope.details.length; i++){
       if(band.id == $scope.details[i].id){
@@ -662,20 +648,6 @@ app.controller('BandsInTownController', function($scope, $http){
     // put the selected show first in the array of shows
     $scope.details.unshift(band);
     buildMap();
-
-    /*
-    var artistName = $scope.details[0].artists[0].name;
-
-    $.getJSON("http://api.bandsintown.com/artists/" + artistName + "/events/search.json?&api_version=2.0&app_id=FYP&location=Dublin,Ireland", function(result) 
-      {
-        $scope.$apply(function()
-        {
-          $scope.details = result;
-          angular.element('#main-info').css('display', 'block');
-          buildMap();
-        }, 0);
-      });   
-    */
   };
 
   $scope.select = function(){

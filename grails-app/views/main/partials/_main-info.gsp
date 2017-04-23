@@ -36,13 +36,10 @@
       </a>
     </span>
   </div>    
-
 </div>
 
-
-
 <div ng-if="details">
-  <div ng-if="(details.errors.length > 0 || details[0] == undefined) && search.length > 0">
+  <div ng-if="(details.errors.length > 0 || details[0] == undefined) && search.length > 0" >
     No results found for {{ search }}
   </div>
 </div>

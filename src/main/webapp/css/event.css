@@ -20,6 +20,10 @@ html{
     text-transform: uppercase;
 }
 
+#eventId{
+    visibility: hidden;
+}
+
 .venue-name{
     font-size: 40px;
     display: inline-block;

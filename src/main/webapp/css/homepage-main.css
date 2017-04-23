@@ -8,7 +8,9 @@ body {
     outline: none;
 }
 
-
+.ng-binding{
+  color: white;
+}
 
 /* REMOVE GOOGLE MAPS TEXTS */
 .gmnoprint a, .gmnoprint span {
@@ -257,6 +259,10 @@ ul.rel-results {
   height: 40px;
   border-radius: 3px;
   border: 1px solid white;
+}
+
+.button-main:hover{
+  border: 1px solid red;
 }
 
 .more-info-button{
