@@ -5,10 +5,17 @@ import com.sun.jmx.snmp.UserAcl;
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class ReviewController extends ControllerTemplate{
+class ReviewController extends ControllerTemplate
+{
     def beforeInterceptor=[action:this.&auth, except:["index", "show"]]
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", saveAjax: "POST"]
+
+    def saveAjax() 
+    {
+        def eventName = params.eventName
+        println "in ajax"
+    }
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -25,6 +32,7 @@ class ReviewController extends ControllerTemplate{
 
     @Transactional
     def save(Review review) {
+        
         if (review == null) {
             transactionStatus.setRollbackOnly()
             notFound()

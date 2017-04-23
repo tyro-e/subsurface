@@ -409,20 +409,21 @@ function eventDate(){
 }
 
 
-/*
-function execute()
-{
-  $.ajax(
-  { 
-    type: "POST",
-    url:"${g.createLink(controller:'review', action:'save')}",
-    contentType : "text/plain",
-    dataType: 'json',
-    data:{event:event?.id,author:session.user?.id},
 
-    success: function() {
-      alert( "Data Saved:");
-    }
+$( document ).ready( function() {
+  $( "#ajaxTest" ).click( function (){
+      $.ajax( {
+          url: reviewAction,
+          type: "post",
+          
+          
+
+          success: function() {
+              alert("success");
+          },
+          error: function(xhr) {
+              alert("fail");
+          }
+      } );
   });
-};
-*/
+});

@@ -16,7 +16,5 @@
 			<g:render template="/review/form"/>
 		</fieldset>
 
-		
 	</g:form>
-
 </div>

@@ -10,7 +10,7 @@ import grails.transaction.Transactional
 
 class EventController extends RestfulController
 {
-    static allowedMethods = [save: "POST", update: "PUT", uploadFeaturedImage: "POST", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "PUT", uploadFeaturedImage: "POST", delete: "DELETE", getEmails: "GET"]
 
     def uploadEventService
     def eventGormService
@@ -18,8 +18,6 @@ class EventController extends RestfulController
     EventController() {
         super(Event)
     }
-
-    
 
     def populate() {
 
@@ -91,31 +89,25 @@ class EventController extends RestfulController
         }
     }
 
-
-    def showByBandId() 
-    {
+    def showByBandId() {
         def event = Event.findByBandsintown_id( params.id )
         redirect ( action: 'show', id: event.id )
     }
 
-    def index(Integer max) 
-    {
+    def index(Integer max) {
         int eventCount = Event.count()
         int startingPoint = eventCount - 50
 
         def events = Event.createCriteria().list
         {
             order('eventTime')
-            firstResult(1)
-            
+            firstResult(1)      
         }
         
         respond events
-
     }
 
-    def search()
-    {
+    def search(){
         def events = Event.createCriteria().list
         {
             def query = params.query
@@ -125,7 +117,6 @@ class EventController extends RestfulController
         respond events
     }
     
-
     def show(Event event) {
         respond event, model:[reviewList:event.reviews.sort{it.id} ]
     }
@@ -212,6 +203,4 @@ class EventController extends RestfulController
             '*'{ render status: NOT_FOUND }
         }
     }
-
-
 }

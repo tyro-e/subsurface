@@ -17,16 +17,11 @@
 		      emailjs.init("user_APMufY2ao4hLbOYmzZoeL");
 		   })();
 		</script>
-
 	</head>
+
 	<body>
 		<div class = "event-page-top col-md-12">
 			<div class="event-title col-md-10">
-				<g:if test="${event?.id}">
-					<span class="property-value event-id" id = "eventId" aria-labelledby="id-label">
-						<g:fieldValue bean="${event}" field="id"/>
-					</span>
-				</g:if>
 				<!-- ARTIST -->
 				<div>
 					<g:if test="${event?.artist}">
@@ -37,10 +32,17 @@
 				</div>
 
 				<!-- VENUE -->
-				<div>
+				<div class="venue-sect">
 					<g:if test="${event?.venue}">
+						LIVE<div style="display:inline-block;color: red">AT</div>
 						<span class="property-value venue-name" id = "venueName" aria-labelledby="venue-label">
-							LIVE<div style="display:inline-block;color: red">AT</div><g:fieldValue bean="${event}" field="venue"/>
+							<g:fieldValue bean="${event}" field="venue"/>
+						</span>
+					</g:if>
+
+					<g:if test="${event?.id}">
+						<span class="property-value event-id" id = "eventId" aria-labelledby="id-label">
+							<g:fieldValue bean="${event}" field="id"/>
 						</span>
 					</g:if>
 				</div>
@@ -48,13 +50,14 @@
 				<!-- DATE TIME -->
 				<div>
 					<div class = "eventTime" id="eventTimeCorrect"></div>
-
 					<g:if test="${event?.eventTime}">
 						<span class="property-value" id = "eventTime" aria-labelledby="eventTime-label"  style = "opacity: 0;font-size: 0;">
 							<g:fieldValue bean="${event}" field="eventTime"/>
 						</span>		
 					</g:if>
 				</div>
+
+
 			</div>
 
 			<div class="col-md-2">
@@ -71,8 +74,6 @@
 			    	<button style = "visibility: hidden;" id="open-or-join-room">Auto Start or Join</button>
 			    </div>
 
-			    <input id = "get-emails" onclick="getEmails()" value = "EMAILS" />
-
 			    <div>
 					<div id = "upload-button">UPLOAD</div>
 					<div id = "upload-chooser">
@@ -87,6 +88,8 @@
 			            </g:uploadForm>
 					</div>
 				</div>
+
+
 		    </div>
 		</div>
 
@@ -94,7 +97,6 @@
 			<div id="show-event" class="col-md-9 scaffold-show" role="main">	
 				<div class="content" style="padding-left: 0">
 					
-
 					<!-- DISPLAY IMAGES -->
 		    		<div class="content" style="padding-left: 0px;padding-right: 60px;">
 
@@ -139,6 +141,7 @@
 							</span>
 						</g:if>
 					</div>
+
 				
 					<!-- TICKET URL -->
 					<div class="ticketLinkDiv">
@@ -230,18 +233,9 @@
 			<div class="col-md-12" style="padding:0;">
 				<div id="map"></div>
 			</div>
-
-
 		</div>
 
-		<!--
-		<g:form url="[resource:event, action:'delete']" method="DELETE">
-			<fieldset class="buttons">
-				<g:link class="edit" action="edit" resource="${event}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-				<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-			</fieldset>
-		</g:form>
-		-->
+	
 	<!-- JAVASCRIPTS -->
 	<script src="${resource(dir:'js', file:'event.js')}" type="text/javascript"></script>
     <!-- SPOTIFY -->
@@ -260,5 +254,7 @@
 	<script src="${resource(dir:'js/livestream', file:'RTCMultiConnection.js')}" type="text/javascript"></script>
 	<script src="${resource(dir:'js/livestream', file:'socket.io.js')}" type="text/javascript"></script>
 	<script src="${resource(dir:'js/livestream', file:'livestream.js')}" type="text/javascript"></script>
+	<g:javascript>var emailAction = "${createLink(controller:'user',action:'getEmails')}"</g:javascript>
+	<g:javascript>var reviewAction = "${createLink(controller:'review',action:'save')}"</g:javascript>
 	</body>
 </html>

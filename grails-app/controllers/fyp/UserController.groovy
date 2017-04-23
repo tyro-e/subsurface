@@ -12,13 +12,17 @@ class UserController {
     def sessionFactory
 
     def getEmails() {
-        def sql = new Sql(sessionFactory.currentSession.connection())
-        sql.execute("SELECT email FROM user") 
 
-        render(contentType:"application/json") {
-            //render your DB query results as JSON
-            //you could also use JsonBuilder to render JSON output
+        def userEmails = User.createCriteria()
+        def acqEmails = userEmails.list
+        {
+            projections
+            {
+                property("email")  
+            }
         }
+        
+        render acqEmails
     }
 
     def login(){}

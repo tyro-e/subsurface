@@ -20,13 +20,16 @@
         <div class="col-md-8"  style="float: left;padding: 0;">
         	<g:textArea required class="form-control review-textarea" rows="3" id="review" name="review" value="${review?.review}"></g:textArea>
         	<div style = "float: right;margin-top: 3px;">
+
 	        	<g:if test="${session.user!=null}">
-					<g:submitButton name="create1" class="btn post-comment-btn" value="POST" />
+					<g:submitButton name="create" class="btn post-comment-btn" value="POST" />
+					<input type="submit" value="AJAX" class="TESTAJAX" id="ajaxTest"/>
 				</g:if>
 
 				<g:if test="${session.user==null}">
 					<div>YOU MUST LOGIN TO TAKE PART</div>
 				</g:if>
+
 			</div>
     	</div>
 	</div>
@@ -45,7 +48,6 @@
 
 
 <%--
-
 <div class="fieldcontain ${hasErrors(bean: review, field: 'author', 'error')} required">
 	<label for="author">
 		<g:message code="review.author.label" default="Author" />
@@ -54,11 +56,11 @@
 	<g:select id="author" name="author.id" from="${fyp.User.list()}" optionKey="id" required="" value="${review?.author?.id}" class="many-to-one"/>
 
 </div>
-
 --%>
 
 
-<%--<div class="fieldcontain ${hasErrors(bean: review, field: 'event', 'error')} required">
+<%--
+<div class="fieldcontain ${hasErrors(bean: review, field: 'event', 'error')} required">
 	<label for="event">
 		<g:message code="review.event.label" default="event" />
 		<span class="required-indicator">*</span>
@@ -66,5 +68,4 @@
 	<g:select id="event" name="event.id" from="${fyp.Event.list()}" optionKey="id" required="" value="${review?.event?.id}" class="many-to-one"/>
 
 </div>
-
 --%>

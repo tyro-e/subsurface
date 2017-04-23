@@ -21,10 +21,10 @@ html{
 }
 
 #eventId{
-    visibility: hidden;
+    opacity: 0;
 }
 
-.venue-name{
+.venue-name, .venue-sect{
     font-size: 40px;
     display: inline-block;
     color: black;

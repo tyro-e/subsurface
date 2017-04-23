@@ -40,11 +40,11 @@
         </div>
         
         <!-- REGISTER IF NOT LOGGED IN -->
-        <sec:ifNotLoggedIn>
+        <g:if test="${session.user==null}">
           <div class = "register-text" style="text-align: center;">New to the site? 
             <g:link controller="user" action="create"  style="text-transform: none;cursor: pointer;color: rgba(255,255,255,0.4) !important;">Register</g:link>
           </div>
-        </sec:ifNotLoggedIn>
+        </g:if>
       </div>
 
       <!-- BEGIN PAGE CONTENT -->
@@ -64,9 +64,7 @@
             <div id="shows" class="col-md-6">
               <div class="child" style="overflow-x: hidden;">
                 <div id="related_results">
-                  <!-- SHOW CONCERTS REMOVED FROM TEMPLATE -->
                   <g:render template="partials/shows" />
-
                 </div>
               </div>  
             </div>
@@ -83,12 +81,7 @@
 
           </div>
         </div>
-
       </div>
-    
-
-       
-     
     </div>
   </div>
 </div>  
