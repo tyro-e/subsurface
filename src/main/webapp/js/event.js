@@ -76,6 +76,9 @@ $(document).ready(function() {
     link.attr('href', ticketUrl);
 
     $(".commentable").insertAfter(".addComment");
+
+    $('.slick-track').css('transform','translate3d(0, 0, 0)');
+    $('.slick-list').css('padding','0');
 });
 
 

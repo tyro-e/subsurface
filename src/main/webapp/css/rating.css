@@ -31,6 +31,7 @@
   padding: 0;
   z-index: 2;
   position: relative;
+  cursor: pointer;
 }
 .star-rating input:hover + i,
 .star-rating input:checked + i {
@@ -72,3 +73,6 @@
 .star-rating.star-3 i ~ i {width: 66.66%;}
 .star-rating.star-3 i ~ i ~ i {width: 100%;}
 
+.rating-field{
+  margin-bottom: 25px;
+}

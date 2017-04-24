@@ -15,7 +15,7 @@ html{
 }
 
 .artist-name{
-    font-size: 60px;
+    font-size: 70px;
     color: black;
     text-transform: uppercase;
 }
@@ -207,6 +207,7 @@ textarea {
 .event-content{
     border: 1px solid white;
     margin: 5px;
+    max-height: 400px;
 }
 
 .content-holder{
@@ -235,8 +236,8 @@ textarea {
 
 .comments-title{
     color: white;
-    font-size: 40px;
-    letter-spacing: 1px;
+    font-size: 64px;
+    letter-spacing: 4px;
 }
 
 .post-comment-btn{
@@ -323,4 +324,35 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 .sticky{
     position: relative;
     width: 100%;
+}
+
+#create-review{
+    margin-top: 35px;
+}
+
+.song-title{
+    height: 40px;
+    background-color: black;
+    border: 1px solid white;
+    padding: 0;
+    color: white;
+    resize: none;
+    width: auto;
+}
+
+.add-track-button{
+    border-radius: 0;
+    background-color: white;
+    
+    color: black;
+}
+
+.add-track-button:hover{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+.setlist-section{
+    padding-right: 27px;
 }

@@ -60,7 +60,7 @@
 
 			</div>
 
-			<div class="col-md-2">
+			<div class="col-md-2" style="padding: 0;">
 				<div class="livestream-button">
 				  	<g:form name = "Start" url="[resource:event, action:'update']" method="PUT" >
 		  				<div name="livestream" type="text" id="room-id" value="${event?.livestream}"></div>
@@ -98,7 +98,7 @@
 				<div class="content" style="padding-left: 0">
 					
 					<!-- DISPLAY IMAGES -->
-		    		<div class="content" style="padding-left: 0px;padding-right: 60px;">
+		    		<div class="content" style="padding-left: 0px;padding-right: 60px;max-height: 500px;">
 
 			    		<div class="slider-nav">
 						  	<g:each in="${event.contents}" var="content">
@@ -221,15 +221,10 @@
 
 				<!-- SETLIST -->
 				<div class="setlist-section">
-					<form action="" id="add-track-form">
-
-				    	<input type="text" class="song-title form-inputs" id="title" placeholder="Track name" required autocomplete="off">
-				    	<button class="add-track-button" >Add</button>
-
-				    </form>
-					
+					<g:render template="setlist"></g:render>
 				    <div class="setlist" id="sortable-setlist"></div>
 		    	</div>
+
 			</div>
 
 			<div class="col-md-12" style="padding:0;">
@@ -238,15 +233,16 @@
 		</div>
 
 	
-	<!-- JAVASCRIPTS -->
+	<!-- SLICK CAROUSEL -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <!-- MAIN -->
 	<script src="${resource(dir:'js', file:'event.js')}" type="text/javascript"></script>
     <!-- SPOTIFY -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="${resource(dir:'js', file:'spotify.js')}" type="text/javascript"></script>
     <!-- DROPZONE -->
     <script src="${resource(dir:'js/plugins', file:'dropzone.js')}" type="text/javascript"></script>
-    <!-- SLICK CAROUSEL -->
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    
     <!-- SETLIST 
     <script src="https://rubaxa.github.io/Sortable/Sortable.js"></script>
 	<script src="${resource(dir:'js', file:'setlist.js')}" type="text/javascript"></script>-->
@@ -259,5 +255,15 @@
 	<g:javascript>var emailAction = "${createLink(controller:'user',action:'getEmails')}"</g:javascript>
 	<g:javascript>var reviewCommentAction = "${createLink(controller:'review',action:'save')}"</g:javascript>
 	<g:javascript>var reviewDeleteAction = "${createLink(controller:'review',action:'delete')}"</g:javascript>
+	<script type="text/javascript">
+	$(document).ready(function() {
+    
+    	$('.slick-track').css('transform','translate3d(0, 0, 0)');
+    	$('.slick-slider').css('transform','translate3d(0, 0, 0)');
+
+    	$('.slick-list').css('padding','0');
+	});
+	</script>
 	</body>
+
 </html>
