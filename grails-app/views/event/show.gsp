@@ -170,14 +170,16 @@
 								<div class="btn-group-vertical pull-right">
 									<g:if test="${session.user?.role.equals("ROLE_USER")}">
 
-										<g:form controller="review" action="delete" id="${r.id }" method="DELETE" style = "margin-top: 0">
+										<g:form  id="${r.id }"  style = "margin-top: 0">
 											<g:hiddenField name="eventId" value="${ event.id}"/>
+											<!--
 											<g:actionSubmit class="btn delete-comment-btn" action="delete" value="X" onclick="return confirm('Are you sure?');" />
+											-->
+											<input type="submit" id="deleteComment" value="AJAX DELETE" />
 										</g:form>
 									</g:if>
 								</div>
 
-								<%--<span class="property-value" aria-labelledby="reviews-label"><g:link controller="review" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>--%>
 							</div>
 						</g:each>
 					</g:if>
@@ -255,6 +257,7 @@
 	<script src="${resource(dir:'js/livestream', file:'socket.io.js')}" type="text/javascript"></script>
 	<script src="${resource(dir:'js/livestream', file:'livestream.js')}" type="text/javascript"></script>
 	<g:javascript>var emailAction = "${createLink(controller:'user',action:'getEmails')}"</g:javascript>
-	<g:javascript>var reviewAction = "${createLink(controller:'review',action:'save')}"</g:javascript>
+	<g:javascript>var reviewCommentAction = "${createLink(controller:'review',action:'save')}"</g:javascript>
+	<g:javascript>var reviewDeleteAction = "${createLink(controller:'review',action:'delete')}"</g:javascript>
 	</body>
 </html>

@@ -11,10 +11,20 @@ class ReviewController extends ControllerTemplate
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", saveAjax: "POST"]
 
-    def saveAjax() 
+    def saveReview(Review review) 
     {
-        def eventName = params.eventName
-        println "in ajax"
+        println "in action"
+
+        review = review?.review
+        User user = User.get(session.user.id)
+        Event event = Event.get(event?.id)
+
+        
+        println review
+        println user
+        println event
+
+        review.save flush:true
     }
 
     def index(Integer max) {
@@ -30,8 +40,11 @@ class ReviewController extends ControllerTemplate
         respond new Review(params)
     }
 
-    @Transactional
     def save(Review review) {
+
+        User user = User.get(session.user.id)
+        review = review.review
+        println user
         
         if (review == null) {
             transactionStatus.setRollbackOnly()
@@ -45,11 +58,13 @@ class ReviewController extends ControllerTemplate
             return
         }
         review.save flush:true
+        
+        
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'review.label', default: 'Review'), review.id])
-                redirect(action:'show',controller:'event', id:review.event.id)
+                //redirect(action:'show',controller:'event', id:review.event.id)
             }
             '*' { respond review, [status: CREATED] }
         }
@@ -94,13 +109,15 @@ class ReviewController extends ControllerTemplate
 
     @Transactional
     def delete(Review review) {
+        println "in delete"
 
         User user = User.get(session.user.id)
+        //def eventId = event.id;
 
         if(user != review.author)
         {
             flash.message="You can only delete your own review"
-            redirect(action:'show',controller:'event', id:review.event.id)
+            //redirect(action:'show',controller:'event', id:review.event.id)
             return 
         }
 
@@ -115,7 +132,7 @@ class ReviewController extends ControllerTemplate
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Review.label', default: 'Review'), review.id])
-                redirect(action:'show',controller:'event', id:params.eventId)
+                //redirect(action:'show',controller:'event', id:params.eventId)
             }
             '*'{ render status: NO_CONTENT }
         }

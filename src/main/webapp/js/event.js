@@ -408,14 +408,31 @@ function eventDate(){
     marker.setMap(map);
 }
 
-
+//event:event?.id,author:session.user?.id
+/*
+$( document ).ready( function() {
+  $( "#comment-ajax" ).click( function (){
+      $.ajax( {
+          url: reviewCommentAction,
+          type: "POST",
+          data: { review: $('.review-textarea').val(), event:event?.id,author:session.user?.id  },
+          
+          success: function() {
+              alert("success" + data);
+          },
+          error: function(xhr) {
+              alert("fail" + data);
+          }
+      } );
+  });
+});*/
 
 $( document ).ready( function() {
-  $( "#ajaxTest" ).click( function (){
+  $( "#deleteComment" ).click( function (){
       $.ajax( {
-          url: reviewAction,
-          type: "post",
-          
+          url: reviewDeleteAction,
+          type: "DELETE",
+          data: {author:session.user.id},
           
 
           success: function() {

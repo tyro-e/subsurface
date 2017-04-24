@@ -44,7 +44,7 @@ class UserController {
     def logout(){
         flash.message="BYE"
         session.user = null
-        redirect(controller:"main")
+        redirect(uri: request.getHeader('referer') )
     }
 
 
