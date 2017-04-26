@@ -9,22 +9,16 @@ class ReviewController extends ControllerTemplate
 {
     def beforeInterceptor=[action:this.&auth, except:["index", "show"]]
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", saveAjax: "POST"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", saveReview: "POST"]
 
-    def saveReview(Review review) 
+    def saveReview() 
     {
-        println "in action"
-
-        review = review?.review
         User user = User.get(session.user.id)
-        Event event = Event.get(event?.id)
+        def review = review.review
 
-        
-        println review
-        println user
-        println event
 
-        review.save flush:true
+
+        review.saveReview flush:true
     }
 
     def index(Integer max) {
@@ -40,12 +34,8 @@ class ReviewController extends ControllerTemplate
         respond new Review(params)
     }
 
+     @Transactional
     def save(Review review) {
-
-        User user = User.get(session.user.id)
-        review = review.review
-        println user
-        
         if (review == null) {
             transactionStatus.setRollbackOnly()
             notFound()
@@ -58,13 +48,11 @@ class ReviewController extends ControllerTemplate
             return
         }
         review.save flush:true
-        
-        
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'review.label', default: 'Review'), review.id])
-                //redirect(action:'show',controller:'event', id:review.event.id)
+                redirect(action:'show',controller:'event', id:review.event.id)
             }
             '*' { respond review, [status: CREATED] }
         }
@@ -117,7 +105,7 @@ class ReviewController extends ControllerTemplate
         if(user != review.author)
         {
             flash.message="You can only delete your own review"
-            //redirect(action:'show',controller:'event', id:review.event.id)
+            redirect(action:'show',controller:'event', id:review.event.id)
             return 
         }
 
