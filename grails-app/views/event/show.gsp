@@ -61,18 +61,20 @@
 			</div>
 
 			<div class="col-md-2" style="padding: 0;">
-				<div class="livestream-button">
-				  	<g:form name = "Start" url="[resource:event, action:'update']" method="PUT" >
-		  				<div name="livestream" type="text" id="room-id" value="${event?.livestream}"></div>
-						
-						<div>
-		    				<input id="open-room" class="save" action="update" value="LIVE" />
-		    			</div>
-	    			</g:form>
+				<g:if test='${session.user?.role.equals("ROLE_ADMIN")}'>
+					<div class="livestream-button">
+					  	<g:form name = "Start" url="[resource:event, action:'update']" method="PUT" >
+			  				<div name="livestream" type="text" id="room-id" value="${event?.livestream}"></div>
+							
+							<div>
+			    				<input id="open-room" class="save" action="update" value="LIVE" />
+			    			</div>
+		    			</g:form>
 
-			    	<button style = "visibility: hidden;" id="join-room">Join</button>
-			    	<button style = "visibility: hidden;" id="open-or-join-room">Auto Start or Join</button>
-			    </div>
+				    	<button style = "visibility: hidden;" id="join-room">Join</button>
+				    	<button style = "visibility: hidden;" id="open-or-join-room">Auto Start or Join</button>
+				    </div>
+				</g:if>
 
 			    <div>
 					<div id = "upload-button">UPLOAD</div>
