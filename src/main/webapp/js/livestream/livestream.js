@@ -1,33 +1,5 @@
 var myip;
 
-function getEmails(){
-  $.ajax(
-  {
-    type: "GET",
-    url: emailAction,
-
-    success: function(data) 
-    {
-      var data = data.replace(/'/g, ';$39;')
-      var eventId = document.getElementById('eventId').innerText;
-      var liveUrl = "http://192.168.43.134:8080/event/show/" + eventId + "#/";
-      console.log(liveUrl);
-
-      var artist = document.getElementById('artistName').innerHTML;
-      var venue = document.getElementById('venueName').innerHTML;
-
-      
-      emailjs.send("gmail","livestream",{ 
-                                          artist: artist,
-                                          venue: venue,
-                                          message: liveUrl, 
-                                          email: data
-                                        })
-    }  
-  });
-}
-
-
 // UI 
 document.getElementById('open-room').onclick = function()
 {
@@ -105,7 +77,31 @@ function showRoomURL(roomid) {
   var roomURLsDiv = document.getElementById('room-urls');
   roomURLsDiv.innerHTML = html;
   roomURLsDiv.style.display = 'block';
-  getEmails();
+
+ $.ajax(
+  {
+    type: "GET",
+    url: emailAction,
+
+    success: function(data) 
+    {
+      var data = data.replace(/'/g, ';$39;')
+      var eventId = document.getElementById('eventId').innerText;
+      var liveUrl = "http://192.168.43.134:8080/event/show/" + eventId + "#" + roomid;
+      console.log(liveUrl);
+
+      var artist = document.getElementById('artistName').innerHTML;
+      var venue = document.getElementById('venueName').innerHTML;
+
+      
+     /* emailjs.send("gmail","livestream",{ 
+                                          artist: artist,
+                                          venue: venue,
+                                          message: liveUrl, 
+                                          email: data
+                                        })*/
+    }  
+  });
 }
 
 (function() 

@@ -147,6 +147,7 @@ textarea {
     text-align: center;
     float:right;
     width: 100px;
+    margin-top: 17px;
 }
 
 #open-room:active, #upload-button:active{
@@ -314,6 +315,7 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
     border: 1px solid white;
     padding: 6px;
     float: right;
+    margin-top: 1px;
 }
 
 .archive-button:hover{
@@ -338,6 +340,7 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
     color: white;
     resize: none;
     width: auto;
+    font-size: 27px;
 }
 
 .add-track-button{

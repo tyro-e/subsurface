@@ -270,6 +270,7 @@ ul.rel-results {
 .button-main:hover{
   border: 1px solid red;
   transition: ease-out 0.2s;
+  text-decoration: none;
 }
 
 .more-info-button{

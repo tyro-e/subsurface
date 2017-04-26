@@ -2,6 +2,7 @@ $(document).ready(function()
 {
   eventDate();
   buildMap();
+  overallRating();
 });
 
 (function($) {
@@ -81,6 +82,20 @@ $(document).ready(function() {
     $('.slick-list').css('padding','0');
 });
 
+function overallRating(){
+    var items = document.getElementsByClassName("ratingz");
+
+    var itemCount = items.length;
+    var total = 0;
+    for(var i = 0; i < itemCount; i++)
+    {
+        var conv = parseInt(items[i].value);
+        console.log(conv)
+        total = total +  parseInt(items[i].value);
+    }
+    console.log(total);
+    console.log(itemCount);
+}
 
 function eventDate(){
     var eventDateJSON = document.getElementById('eventTime').innerText;
@@ -97,8 +112,10 @@ function eventDate(){
     console.log("event date normal: " + eventDateNormal);
     console.log("current date normal: " + currentDate);
 
-    // if the event has not happened yet, hide/ show these elements
-    if (eventDateJSON > currentDateJSON)
+    var eJ = eventDateJSON.substring(10,0);
+    var cJ = currentDateJSON.substring(10,0);
+
+    if (eJ > cJ)
     {
       console.log("event has not happened yet")
 
@@ -119,20 +136,33 @@ function eventDate(){
       $('.rating-text').css('display','none');
       $('.rating-field').css('display','none');
 
+      //hide upload
+      $('#upload-button').css('display','none');
+
     }
 
-    if (eventDateJSON < currentDateJSON)
+    if (eJ < cJ)
     {
       console.log("event has happened")
 
-      $('.livestream-button').css('display','block');
+      $('.livestream-button').css('display','none');
     }
 
-    if (eventDateJSON = currentDateJSON)
+    if (eJ == cJ)
     {
       console.log("event is today")
 
       $('.livestream-button').css('display','block');
+      $('.spotify-section').css('display','block');
+      $('.setlist-section').css('display','none');
+
+      // hide ratings
+      $('.rating-text').css('display','none');
+      $('.rating-field').css('display','none');
+
+      // show ticket links
+      $('.ticketStatusDiv').css('display','block');
+      $('.ticketLinkDiv').css('display','block');
     }
 }
 
@@ -412,23 +442,27 @@ function eventDate(){
 }
 
 //event:event?.id,author:session.user?.id
+
 /*
 $( document ).ready( function() {
+
+  var eventID = document.getElementById('eventId').innerText;
+
   $( "#comment-ajax" ).click( function (){
       $.ajax( {
           url: reviewCommentAction,
           type: "POST",
-          data: { review: $('.review-textarea').val(), event:event?.id,author:session.user?.id  },
+          data: { review: $('.review-textarea').val(), event:eventID  },
           
           success: function() {
-              alert("success" + data);
+              alert("success");
           },
           error: function(xhr) {
-              alert("fail" + data);
+              alert("fail");
           }
       } );
   });
-});*/
+});
 
 $( document ).ready( function() {
   $( "#deleteComment" ).click( function (){
@@ -447,3 +481,4 @@ $( document ).ready( function() {
       } );
   });
 });
+*/

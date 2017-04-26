@@ -6,7 +6,6 @@
 		<link rel="stylesheet" href="${resource(dir:'css',file:'event.css')}" />
 	</head>
 	<body style="background-color: white !important">
-		<div class="col-md-12 listings-top">ARCHIVE OF EVENTS</div>
 
 		<g:form name="form" controller="event" action="search">
 			<div class="sticky">
@@ -80,7 +79,7 @@ table td[class*=col-], table th[class*=col-]
     //detect when user scroll to top and set position top to 140px else sets position top to 0
         $(".sticky").css({
             "top": "0",
-            "position": $(this).scrollTop() > 190 ? "fixed" : "relative"
+            "position": $(this).scrollTop() > 27 ? "fixed" : "relative"
         });
 });
 </script>

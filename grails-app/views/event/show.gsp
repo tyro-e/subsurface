@@ -165,17 +165,18 @@
 									<div class="review-text">${r.review }</div>
 									<small>by<cite title="Source Title">${r.author }</cite></small> 
 									<div class = "rating-text">Rating <cite title="Source Title">${r.rating }/5</cite></div>
+									<!--<div class="ratingz">${r.rating}</div>-->
 								</blockquote>
 
 								<div class="btn-group-vertical pull-right">
-									<g:if test="${session.user?.role.equals("ROLE_USER")}">
+									<g:if test='${session.user?.role.equals("ROLE_USER") || session.user?.role.equals("ROLE_ADMIN")}'>
 
-										<g:form  id="${r.id }"  style = "margin-top: 0">
+										<g:form  id="${r.id }" controller="review" action="delete" method="DELETE" style = "margin-top: 0">
 											<g:hiddenField name="eventId" value="${ event.id}"/>
-											<!--
+											
 											<g:actionSubmit class="btn delete-comment-btn" action="delete" value="X" onclick="return confirm('Are you sure?');" />
-											-->
-											<input type="submit" id="deleteComment" value="AJAX DELETE" />
+											<!--
+											<input type="submit" id="deleteComment" value="AJAX DELETE" />-->
 										</g:form>
 									</g:if>
 								</div>

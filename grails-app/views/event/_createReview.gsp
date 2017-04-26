@@ -10,7 +10,7 @@
 		</ul>
 	</g:hasErrors>
 
-	<g:form url="[resource:review, action:'save',controller:'review',params:[event:event?.id,author:session.user?.id]]" style= "margin-top: 0;" >
+	<g:form url="[resource:review, action:'save',controller:'review',params:[event:event?.id,author:session.user?.id]]"  style= "margin-top: 0;" >
 		
 		<fieldset class="form">
 			<g:render template="/review/form"/>

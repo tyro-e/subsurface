@@ -60,6 +60,7 @@ app.controller('BandsInTownController', function($scope, $http){
           console.log("fetching 2");
           $scope.details = result;
 
+
           angular.element('#main-info').css('display', 'block');
           $('.twitter-background').css('display','inline-block');  
         }, 0);
@@ -72,6 +73,7 @@ app.controller('BandsInTownController', function($scope, $http){
         }
 
         else{
+          $('.rsvp').css('display','none');
           buildMap();
         }       
       });   
@@ -332,7 +334,6 @@ app.controller('BandsInTownController', function($scope, $http){
   
   function buildMap(){
     console.log("buildMap");
-    $('.rsvp').css('display','none');
     // building the content within the info window
     var contentString = "<strong>" + $scope.details[0].title + "</strong><br>&nbsp;<span>" + $scope.details[0].formatted_datetime + "</span>";
 
