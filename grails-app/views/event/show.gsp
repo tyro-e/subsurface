@@ -103,28 +103,47 @@
 		    		<div class="content" style="padding-left: 0px;padding-right: 60px;max-height: 500px;">
 
 			    		<div class="slider-nav">
+
 						  	<g:each in="${event.contents}" var="content">
-			                	<img height = "50px" class = "event-content" src = "${content.url}" />
+		                		<g:if test="${content.url.endsWith('.MOV') || content.url.endsWith('.mp4')}">
+		                			
+					            	<video class = "event-content-thumbnail video-thumb" height = "50px" class = "event-content" >
+					            		<div >
+					                		<source src="${content.url}" type="video/mp4">
+					                	</div>
+					            	</video>
+						            
+						        </g:if>
+
+						        <g:else>
+						            <img  height = "50px" class = "event-content-thumbnail" src="${content.url}" />
+						        </g:else>
 			            	</g:each>
+
 						</div>
 
 						<div class="content-holder">
 							<div class="slider-for">
 
 								<g:each in="${event.contents}" var="content">
-				                	<img class = "event-content" src = "${content.url}" />
-				            	</g:each>
+							        <g:if test="${content.url.endsWith('.MOV') || content.url.endsWith('.mp4')}">
+							            <video class = "event-content" controls >
+							                <source src="${content.url}" type="video/mp4">
+							            </video>
+							        </g:if>
 
-				            	<!--
-								<g:each in="${event.contents}" var="content">
-				                	<video class = "event-content" controls>
-				                		<source src = "${content.url}" >
-				                	</video>
-				            	</g:each>			
-								-->
+							        <g:else>
+							            <img class = "event-content" src="${content.url}" />
+							        </g:else>
+							    </g:each>
+
 							</div>
 						</div>
+
 					</div>
+
+
+
 
 					<!-- LIVESTREAM WINDOW -->
 					<div class="livestream-section">
@@ -167,7 +186,7 @@
 									<div class="review-text">${r.review }</div>
 									<small>by<cite title="Source Title">${r.author }</cite></small> 
 									<div class = "rating-text">Rating <cite title="Source Title">${r.rating }/5</cite></div>
-									<!--<div class="ratingz">${r.rating}</div>-->
+									<div class="ratingz">${r.rating}</div>
 								</blockquote>
 
 								<div class="btn-group-vertical pull-right">
@@ -258,15 +277,5 @@
 	<g:javascript>var emailAction = "${createLink(controller:'user',action:'getEmails')}"</g:javascript>
 	<g:javascript>var reviewCommentAction = "${createLink(controller:'review',action:'save')}"</g:javascript>
 	<g:javascript>var reviewDeleteAction = "${createLink(controller:'review',action:'delete')}"</g:javascript>
-	<script type="text/javascript">
-	$(document).ready(function() {
-    
-    	$('.slick-track').css('transform','translate3d(0, 0, 0)');
-    	$('.slick-slider').css('transform','translate3d(0, 0, 0)');
-
-    	$('.slick-list').css('padding','0');
-	});
-	</script>
 	</body>
-
 </html>

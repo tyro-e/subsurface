@@ -82,19 +82,20 @@ $(document).ready(function() {
     $('.slick-list').css('padding','0');
 });
 
-function overallRating(){
-    var items = document.getElementsByClassName("ratingz");
 
+
+function overallRating()
+{
+    var items = document.getElementsByClassName("ratingz");
     var itemCount = items.length;
-    var total = 0;
+    var sum = 0;
+
     for(var i = 0; i < itemCount; i++)
     {
-        var conv = parseInt(items[i].value);
-        console.log(conv)
-        total = total +  parseInt(items[i].value);
+        sum += parseInt(items[i].textContent);
     }
-    console.log(total);
-    console.log(itemCount);
+
+    var average = sum / itemCount;
 }
 
 function eventDate(){

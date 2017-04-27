@@ -7,6 +7,7 @@ video {
     object-fit: fill;
     width: 720px;
     height: 430px;
+    max-height: 439px;
 }
 button,input,select {
     font-weight: normal;

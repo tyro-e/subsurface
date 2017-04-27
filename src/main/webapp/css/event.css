@@ -211,6 +211,20 @@ textarea {
     max-height: 400px;
 }
 
+.event-content-thumbnail{
+    border: 1px solid white;
+    margin: 5px;
+    height: 56px !important;
+}
+
+.video-thumb{    
+    background-image: url(http://wptf.com/wp-content/uploads/2014/05/play-button.png);
+    background-size: 39px 39px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
 .content-holder{
     width: 720px;
 }
