@@ -4,7 +4,6 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'event.label', default: 'Event')}" />
-		<link rel="stylesheet" href="${resource(dir:'css',file:'livestream.css')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'event.css')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'rating.css')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'setlist.css')}" />
@@ -34,7 +33,7 @@
 				<!-- VENUE -->
 				<div class="venue-sect">
 					<g:if test="${event?.venue}">
-						LIVE<div style="display:inline-block;color: red">AT</div>
+						LIVE <div style="display:inline-block;color: red"> AT</div>
 						<span class="property-value venue-name" id = "venueName" aria-labelledby="venue-label">
 							<g:fieldValue bean="${event}" field="venue"/>
 						</span>
@@ -143,8 +142,8 @@
 				                <g:hiddenField name="eventId"   value="${this.event?.id}" />
 				                <g:hiddenField name="version"   value="${this.event?.version}" />
 				                
-				                <input type="file" name="file" />
-				                <input class="save" type="submit" value="Confirm" />  
+				                <input class = "input-upload" type="file" name="file" />
+				                <input class="save confirm-upload-button" type="submit" value="CONFIRM" />  
 				            </g:uploadForm>
 						</div>
 					</div>
@@ -247,7 +246,26 @@
 				<!-- SETLIST -->
 				<div class="setlist-section">
 					<g:render template="setlist"></g:render>
-				    <div class="setlist" id="sortable-setlist"></div>
+
+				    <div class="setlist" id="sortable-setlist">
+				    	<g:if test="${event?.setlists}">
+							<g:each in="${setlistList}" var="setlist">
+								<div class="col-md-12 setlist-item" style="padding-left: 0;">
+									<div class="col-md-2 track-position">${setlist.position}</div>
+									<div class="col-md-8 track-name" style="padding-left: 0;">${setlist.track}</div>
+								
+
+									<div class="btn-group-vertical col-md-2">
+										<g:form  id="${setlist.id }" controller="setlist" action="delete" style = "margin-top: 0">
+											<g:hiddenField name="eventId" value="${ event.id}"/>
+											<g:actionSubmit class="btn delete-setlist-btn" action="delete" value="X" onclick="return confirm('Are you sure?');" />										
+										</g:form>									
+									</div>
+								</div>
+
+							</g:each>
+						</g:if>
+				    </div>
 		    	</div>
 			</div>
 
@@ -266,7 +284,6 @@
     <script src="${resource(dir:'js', file:'spotify.js')}" type="text/javascript"></script>
     <!-- DROPZONE -->
     <script src="${resource(dir:'js/plugins', file:'dropzone.js')}" type="text/javascript"></script>
-    
     <!-- SETLIST 
     <script src="https://rubaxa.github.io/Sortable/Sortable.js"></script>
 	<script src="${resource(dir:'js', file:'setlist.js')}" type="text/javascript"></script>-->

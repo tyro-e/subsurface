@@ -118,7 +118,7 @@ class EventController extends RestfulController
     }
     
     def show(Event event) {
-        respond event, model:[reviewList:event.reviews.sort{it.id} ]
+        respond event, model:[reviewList:event.reviews.sort{it.id}, setlistList:event.setlists.sort{it.id}]
     }
 
     def create() {

@@ -175,6 +175,9 @@ function eventDate(){
       // show ticket links
       $('.ticketStatusDiv').css('display','block');
       $('.ticketLinkDiv').css('display','block');
+
+      //hide upload
+      $('#upload-button').css('display','none');
     }
 }
 

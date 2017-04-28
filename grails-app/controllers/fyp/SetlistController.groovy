@@ -40,7 +40,7 @@ class SetlistController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'setlist.label', default: 'Setlist'), setlist.id])
-                redirect setlist
+                redirect(action:'show',controller:'event', id:setlist.event.id)
             }
             '*' { respond setlist, [status: CREATED] }
         }
@@ -89,7 +89,7 @@ class SetlistController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'setlist.label', default: 'Setlist'), setlist.id])
-                redirect action:"index", method:"GET"
+                redirect(action:'show',controller:'event', id:setlist.event.id)
             }
             '*'{ render status: NO_CONTENT }
         }

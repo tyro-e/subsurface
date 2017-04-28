@@ -1,56 +1,33 @@
-
-
-/******** SETLIST ********/
-
-
-
 fieldset {
   border: none;
   margin: 0;
   padding: 0;
 }
 
-.form-inputs {
-  margin-left: 5px;
-  padding-left: 5px;
-}
-
-.song-key {
-  width: 35px;
-}
-
-.song-tempo {
-  width: 40px;
-}
-
-/*disable input spinner on tempo input*/
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-
-button {
-  border-radius: 5px;
-  border: 0;
-  width: 80px;
-  height:25px;
-  margin-top: 14px;
-  background-color: rgba(255, 255, 255, 0.72);
-}
-
 .setlist {
   text-align: left;
-  margin: 40px auto;
+  margin: 25px auto;
   max-width: 350px;
   color: white;
-  padding-left: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
   height: 500px;
   border: 1px solid white;
+}
 
+.setlist-item{
+  padding: 5px;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(141, 167, 142, 0.31);
+}
+
+.delete-setlist-btn{
+      border-radius: 0;
+    border: 1px solid red;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 1px 5px;
+    font-size: 10px;
 }
 
 .sortable-ghost {

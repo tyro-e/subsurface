@@ -82,12 +82,13 @@ html{
 }
 
 .overall-rating{
-    font-size: 60px;
+    font-size: 70px;
+    color: black;
 }
 
 .rating-total{
-    margin-top: 38px;
-    font-size: 21px;
+    margin-top: 47px;
+    font-size: 25px;
 }
 
 /* COMMENTS */
@@ -160,6 +161,24 @@ textarea {
     cursor: pointer;
     text-align: center;
     width: 186px;
+}
+
+.input-upload{
+    color:red;
+}
+
+.confirm-upload-button{
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    padding: 10px;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.confirm-upload-button:hover{
+    background-color: white;
+    color: red;
 }
 
 #upload-button:hover{
@@ -240,6 +259,26 @@ textarea {
     background-position: center;
     background-repeat: no-repeat;
     background-color: transparent;
+}
+
+video {
+    object-fit: fill;
+    width: 720px;
+    height: 430px;
+    max-height: 439px;
+}
+button,input,select {
+    font-weight: normal;
+    margin: 1px 0 1px 0;
+    text-decoration: none;
+    display: inline-block;
+    text-shadow: none;
+    font-size: 15px;
+    outline: none;
+}
+
+.content{
+    padding: 0px 27px;
 }
 
 .content-holder{
@@ -377,7 +416,7 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 .add-track-button{
     border-radius: 0;
     background-color: white;
-    
+    margin: 0;
     color: black;
 }
 
