@@ -1,5 +1,4 @@
-$(document).ready(function() 
-{
+$(document).ready(function() {
   eventDate();
   buildMap();
   overallRating();
@@ -40,17 +39,19 @@ $(document).ready(function(){
       focusOnSelect: true
   });
 
+
+
   $('#upload-button').clickToggle(function(){
-    $('#upload-button').css({'background-color':'black',
+    $('#upload-button').css({'background-color':'white',
                               'border':'1px solid white',
-                              'color':'white'});
+                              'color':'black'});
     $('#upload-chooser').css('display','block');
   },
 
   function(){
-    $('#upload-button').css({'background-color':'white',
-                              'border':'1px solid black',
-                              'color':'black'});
+    $('#upload-button').css({'background-color':'black',
+                              'border':'1px solid white',
+                              'color':'white'});
     $('#upload-chooser').css('display','none');
   });
 });
@@ -84,9 +85,9 @@ $(document).ready(function() {
 
 
 
-function overallRating()
-{
+function overallRating(){
     var items = document.getElementsByClassName("ratingz");
+    $('.ratingz').css('display','none');
     var itemCount = items.length;
     var sum = 0;
 
@@ -96,6 +97,14 @@ function overallRating()
     }
 
     var average = sum / itemCount;
+    var averageDecimals = average.toFixed(1);
+
+    if (String(averageDecimals) === 'NaN'){
+      averageDecimals = 0;
+    }    
+
+    console.log(averageDecimals);
+    $('.overall-rating').append(averageDecimals);
 }
 
 function eventDate(){
@@ -136,6 +145,7 @@ function eventDate(){
       // hide ratings
       $('.rating-text').css('display','none');
       $('.rating-field').css('display','none');
+      $('.overall-rating-div').css('display','none');
 
       //hide upload
       $('#upload-button').css('display','none');
@@ -160,6 +170,7 @@ function eventDate(){
       // hide ratings
       $('.rating-text').css('display','none');
       $('.rating-field').css('display','none');
+      $('.overall-rating-div').css('display','none');
 
       // show ticket links
       $('.ticketStatusDiv').css('display','block');

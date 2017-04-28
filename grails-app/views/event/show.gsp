@@ -60,7 +60,12 @@
 
 			</div>
 
-			<div class="col-md-2" style="padding: 0;">
+			<div class="col-md-2" style="padding: 0;float: right;">
+				<div class="overall-rating-div">
+					<div class="overall-rating"></div>
+					<div class="rating-total">/5</div>
+				</div>
+
 				<g:if test='${session.user?.role.equals("ROLE_ADMIN")}'>
 					<div class="livestream-button">
 					  	<g:form name = "Start" url="[resource:event, action:'update']" method="PUT" >
@@ -76,20 +81,7 @@
 				    </div>
 				</g:if>
 
-			    <div>
-					<div id = "upload-button">UPLOAD</div>
-					<div id = "upload-chooser">
-						<!-- UPLOAD FORM -->
-			            <g:uploadForm name="upload" action="upload">
-			                <g:hiddenField name="id"        value="${this.event?.id}" />
-			                <g:hiddenField name="eventId"   value="${this.event?.id}" />
-			                <g:hiddenField name="version"   value="${this.event?.version}" />
-			                
-			                <input type="file" name="file" />
-			                <input class="save" type="submit" value="Confirm" />  
-			            </g:uploadForm>
-					</div>
-				</div>
+
 
 
 		    </div>
@@ -139,11 +131,23 @@
 
 							</div>
 						</div>
-
 					</div>
 
-
-
+					<!-- UPLOAD BUTTON -->
+					<div class="upload-button-div">
+						<div id = "upload-button">UPLOAD CONTENT</div>
+						<div id = "upload-chooser">
+							<!-- UPLOAD FORM -->
+				            <g:uploadForm name="upload" action="upload">
+				                <g:hiddenField name="id"        value="${this.event?.id}" />
+				                <g:hiddenField name="eventId"   value="${this.event?.id}" />
+				                <g:hiddenField name="version"   value="${this.event?.version}" />
+				                
+				                <input type="file" name="file" />
+				                <input class="save" type="submit" value="Confirm" />  
+				            </g:uploadForm>
+						</div>
+					</div>
 
 					<!-- LIVESTREAM WINDOW -->
 					<div class="livestream-section">
@@ -162,8 +166,7 @@
 							</span>
 						</g:if>
 					</div>
-
-				
+			
 					<!-- TICKET URL -->
 					<div class="ticketLinkDiv">
 						<a class = "ticketLink btn" id="ticket_url_append" target="_blank">BUY TICKETS</a>
@@ -246,7 +249,6 @@
 					<g:render template="setlist"></g:render>
 				    <div class="setlist" id="sortable-setlist"></div>
 		    	</div>
-
 			</div>
 
 			<div class="col-md-12" style="padding:0;">

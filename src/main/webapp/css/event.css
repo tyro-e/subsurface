@@ -76,6 +76,20 @@ html{
     color: white;
 }
 
+.overall-rating-div{
+    display: inline-flex;
+    float: right;
+}
+
+.overall-rating{
+    font-size: 60px;
+}
+
+.rating-total{
+    margin-top: 38px;
+    font-size: 21px;
+}
+
 /* COMMENTS */
 textarea {
     overflow: auto;
@@ -137,26 +151,30 @@ textarea {
 }
 
 #upload-button{
-    color: black;
+    color: white;
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid white;
     text-transform: uppercase;
     padding: 10px;
     letter-spacing: 2px;
     cursor: pointer;
     text-align: center;
-    float:right;
-    width: 100px;
-    margin-top: 17px;
+    width: 186px;
 }
 
-#open-room:active, #upload-button:active{
+#upload-button:hover{
+    background-color: white;
+    border: 1px solid white;
+    color: black;
+}
+
+#open-room:active{
     background-color: black;
     border: 1px solid white;
     color: white;
 }
 
-#open-room:hover, #upload-button:hover{
+#open-room:hover{
     background-color: black;
     border: 1px solid white;
     color: white;
@@ -207,7 +225,6 @@ textarea {
 
 .event-content{
     border: 1px solid white;
-    margin: 5px;
     max-height: 400px;
 }
 
