@@ -12,6 +12,7 @@ fieldset {
   padding: 5px;
   height: 500px;
   border: 1px solid white;
+  overflow: auto;
 }
 
 .setlist-item{
@@ -21,7 +22,7 @@ fieldset {
 }
 
 .delete-setlist-btn{
-      border-radius: 0;
+    border-radius: 0;
     border: 1px solid red;
     color: white;
     background-color: black;
@@ -29,6 +30,12 @@ fieldset {
     padding: 1px 5px;
     font-size: 10px;
 }
+
+.delete-setlist-btn:hover{
+  background-color: white;
+  color: black;
+}
+
 
 .sortable-ghost {
   opacity: 0;

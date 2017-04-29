@@ -411,6 +411,20 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
     resize: none;
     width: auto;
     font-size: 27px;
+    padding-left: 3px;
+}
+.song-position{
+    height: 40px;
+    background-color: black;
+    padding: 0;
+    color: white;
+    resize: none;
+    width: 22%;
+    font-size: 27px;
+    text-align: center;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
 }
 
 .add-track-button{

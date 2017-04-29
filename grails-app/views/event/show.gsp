@@ -251,12 +251,12 @@
 				    	<g:if test="${event?.setlists}">
 							<g:each in="${setlistList}" var="setlist">
 								<div class="col-md-12 setlist-item" style="padding-left: 0;">
-									<div class="col-md-2 track-position">${setlist.position}</div>
+									<div class="col-md-2 track-position">${setlist.position}.</div>
 									<div class="col-md-8 track-name" style="padding-left: 0;">${setlist.track}</div>
 								
 
 									<div class="btn-group-vertical col-md-2">
-										<g:form  id="${setlist.id }" controller="setlist" action="delete" style = "margin-top: 0">
+										<g:form  id="${setlist.id }" controller="setlist" action="delete" method="DELETE" style = "margin-top: 0">
 											<g:hiddenField name="eventId" value="${ event.id}"/>
 											<g:actionSubmit class="btn delete-setlist-btn" action="delete" value="X" onclick="return confirm('Are you sure?');" />										
 										</g:form>									
