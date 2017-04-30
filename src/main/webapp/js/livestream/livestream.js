@@ -94,12 +94,12 @@ function showRoomURL(roomid) {
       var venue = document.getElementById('venueName').innerHTML;
 
       
-     /* emailjs.send("gmail","livestream",{ 
+     emailjs.send("gmail","livestream",{ 
                                           artist: artist,
                                           venue: venue,
                                           message: liveUrl, 
                                           email: data
-                                        })*/
+                                        })
     }  
   });
 }

@@ -432,6 +432,7 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
     background-color: white;
     margin: 0;
     color: black;
+    padding: 9px 12px;
 }
 
 .add-track-button:hover{

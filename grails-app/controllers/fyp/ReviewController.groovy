@@ -120,7 +120,7 @@ class ReviewController extends ControllerTemplate
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Review.label', default: 'Review'), review.id])
-                //redirect(action:'show',controller:'event', id:params.eventId)
+                redirect(action:'show',controller:'event', id:params.eventId)
             }
             '*'{ render status: NO_CONTENT }
         }

@@ -181,6 +181,100 @@ function eventDate(){
     }
 }
 
+function checkInput(ob) {
+  var invalidChars = /[^0-9]/gi
+  if(invalidChars.test(ob.value)) {
+            ob.value = ob.value.replace(invalidChars,"");
+      }
+}
+
+$( document ).ready( function() {
+
+  var eventID = document.getElementById('eventId').innerText;
+
+  $( ".add-track-button" ).click( function (){
+
+      $.ajax( {
+          url: setlistAddAction,
+          type: "POST",
+          data: { position: $('.song-position').val(), track: $('.song-title').val(), event:eventID  },
+          
+          success: function() {
+            $(".setlist").load(location.href+" .setlist>*","");
+            $('.song-position').val("");
+            $('.song-title').val("");
+          },
+          error: function() {
+              alert("Something went wrong there!");
+          }
+      } );
+  });
+});
+
+/*
+$( document ).ready( function() {
+
+  var eventID = document.getElementById('eventId').innerText;
+
+  $( ".delete-setlist-btn" ).click( function (){
+
+      $.ajax( {
+          url: setlistDeleteAction,
+          type: "DELETE",
+          data: {id:id },
+          
+          success: function() {
+            $(".setlist").load(location.href+" .setlist>*","");
+          },
+          error: function() {
+              alert("Something went wrong there!");
+          }
+      } );
+  });
+});
+*/
+
+/*
+$( document ).ready( function() {
+
+  var eventID = document.getElementById('eventId').innerText;
+
+  $( "#comment-ajax" ).click( function (){
+      $.ajax( {
+          url: reviewCommentAction,
+          type: "POST",
+          data: { review: $('.review-textarea').val(), event:eventID  },
+          
+          success: function() {
+              alert("success");
+          },
+          error: function(xhr) {
+              alert("fail");
+          }
+      } );
+  });
+});
+
+$( document ).ready( function() {
+  $( "#deleteComment" ).click( function (){
+      $.ajax( {
+          url: reviewDeleteAction,
+          type: "DELETE",
+          data: {author:session.user.id},
+          
+
+          success: function() {
+              alert("success");
+          },
+          error: function(xhr) {
+              alert("fail");
+          }
+      } );
+  });
+});
+*/
+
+
  function buildMap(){
     var longitude  = parseFloat(document.getElementById("longitude").innerHTML);
     var latitude = parseFloat(document.getElementById("latitude").innerHTML);
@@ -455,52 +549,3 @@ function eventDate(){
     
     marker.setMap(map);
 }
-
-function checkInput(ob) {
-  var invalidChars = /[^0-9]/gi
-  if(invalidChars.test(ob.value)) {
-            ob.value = ob.value.replace(invalidChars,"");
-      }
-}
-
-//event:event?.id,author:session.user?.id
-
-/*
-$( document ).ready( function() {
-
-  var eventID = document.getElementById('eventId').innerText;
-
-  $( "#comment-ajax" ).click( function (){
-      $.ajax( {
-          url: reviewCommentAction,
-          type: "POST",
-          data: { review: $('.review-textarea').val(), event:eventID  },
-          
-          success: function() {
-              alert("success");
-          },
-          error: function(xhr) {
-              alert("fail");
-          }
-      } );
-  });
-});
-
-$( document ).ready( function() {
-  $( "#deleteComment" ).click( function (){
-      $.ajax( {
-          url: reviewDeleteAction,
-          type: "DELETE",
-          data: {author:session.user.id},
-          
-
-          success: function() {
-              alert("success");
-          },
-          error: function(xhr) {
-              alert("fail");
-          }
-      } );
-  });
-});
-*/

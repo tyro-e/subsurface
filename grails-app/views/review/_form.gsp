@@ -22,11 +22,11 @@
         	<div style = "float: right;margin-top: 3px;">
 
 	        	<g:if test="${session.user!=null}">
-	        		<!--
-	        		<g:submitButton name="create" class="btn post-comment-btn" value="POST" />
-	        		-->
 	        		
-					<input type="submit" value="AJAX" class="TESTAJAX" id="comment-ajax"/>
+	        		<g:submitButton name="create" class="btn post-comment-btn" value="POST" />
+	        		
+	        		<!--
+					<input type="submit" value="AJAX" class="TESTAJAX" id="comment-ajax"/>-->
 				</g:if>
 
 				<g:if test="${session.user==null}">

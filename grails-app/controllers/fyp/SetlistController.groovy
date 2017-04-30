@@ -6,7 +6,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class SetlistController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", saveAjax: "POST", deleteAjax: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -40,10 +40,25 @@ class SetlistController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'setlist.label', default: 'Setlist'), setlist.id])
-                redirect(action:'show',controller:'event', id:setlist.event.id)
+                //redirect(action:'show',controller:'event', id:setlist.event.id)
             }
             '*' { respond setlist, [status: CREATED] }
         }
+    }
+
+    def saveAjax(Setlist setlist){
+        def position = setlist?.position
+        def track = setlist?.track
+
+        setlist.save flush:true
+    }
+
+    def deleteAjax(Setlist setlist){
+        def id = setlist?.id
+
+        println id
+
+        setlist.delete flush:true
     }
 
     def edit(Setlist setlist) {
