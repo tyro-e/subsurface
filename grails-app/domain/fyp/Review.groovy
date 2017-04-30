@@ -2,13 +2,13 @@ package fyp
 
 class Review {
 	
-	String review
+	String comment
 	int rating
 
 	static belongsTo = [event:Event, author:User]
 	
 	static mapping = {
-		review type:"text"
+		comment type:"text"
 		rating nullable:true
 	}
 

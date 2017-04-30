@@ -55,11 +55,14 @@ class SetlistController {
 
     def deleteAjax(Setlist setlist){
         def id = setlist?.id
-
-        println id
-
         setlist.delete flush:true
     }
+
+
+
+
+
+    
 
     def edit(Setlist setlist) {
         respond setlist

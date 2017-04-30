@@ -5,23 +5,6 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'review.label', default: 'Review')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
-	    <script type="text/javascript">
-        $( document ).ready( function() {
-            $( "#save" ).click( function ( event ){
-                $.ajax( {
-                    url: "${g.createLink( controller: 'review', action:'saveAjax')}",
-                    type: "post",
-                    data: { eventName: $( '#eventName' ).val() },
-                    success: function() {
-                        $( "#resultDiv" ).addClass( 'alert alert-info' ).append( 'Successfully saved event' )
-                    },
-                    error: function(xhr) {
-                        $( "#resultDiv" ).addClass( 'alert alert-danger' ).append( 'Error saving event' )
-                    }
-                } );
-            });
-        });
-    </script>
 	</head>
 	<body>
 		<div id="show-review" class="content scaffold-show" role="main">
@@ -69,13 +52,6 @@
 				</fieldset>
 			</g:form>
 		</div>
-
-		  <div id="resultDiv"></div>
-
-    <g:form>
-        Event name: <input type="text" id="eventName" name="eventName" value="${params.eventName}" />
-        <button type="button" id="save" name="save">Save</button>
-    </g:form>
 	</body>
 
 

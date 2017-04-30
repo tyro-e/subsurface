@@ -188,12 +188,11 @@ function checkInput(ob) {
       }
 }
 
-$( document ).ready( function() {
+$(document).ready( function() {
 
   var eventID = document.getElementById('eventId').innerText;
 
   $( ".add-track-button" ).click( function (){
-
       $.ajax( {
           url: setlistAddAction,
           type: "POST",
@@ -207,7 +206,27 @@ $( document ).ready( function() {
           error: function() {
               alert("Something went wrong there!");
           }
-      } );
+      });
+  });
+});
+
+$(document).ready( function() {
+
+  var eventID = document.getElementById('eventId').innerText;
+
+  $(".comment-ajax").click( function (){
+      $.ajax( {
+          url: reviewCommentAction,
+          type: "POST",
+          data: { comment: $('.review-textarea').val(), rating: $('input[name=rating]:checked').val(), event:eventID  },
+          
+          success: function() {
+              alert("success");
+          },
+          error: function() {
+              alert("fail");
+          }
+      });
   });
 });
 
@@ -234,27 +253,9 @@ $( document ).ready( function() {
 });
 */
 
+
+
 /*
-$( document ).ready( function() {
-
-  var eventID = document.getElementById('eventId').innerText;
-
-  $( "#comment-ajax" ).click( function (){
-      $.ajax( {
-          url: reviewCommentAction,
-          type: "POST",
-          data: { review: $('.review-textarea').val(), event:eventID  },
-          
-          success: function() {
-              alert("success");
-          },
-          error: function(xhr) {
-              alert("fail");
-          }
-      } );
-  });
-});
-
 $( document ).ready( function() {
   $( "#deleteComment" ).click( function (){
       $.ajax( {

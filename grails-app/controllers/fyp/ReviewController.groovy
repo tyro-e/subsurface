@@ -9,17 +9,7 @@ class ReviewController extends ControllerTemplate
 {
     def beforeInterceptor=[action:this.&auth, except:["index", "show"]]
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", saveReview: "POST"]
-
-    def saveReview() 
-    {
-        User user = User.get(session.user.id)
-        def review = review.review
-
-
-
-        review.saveReview flush:true
-    }
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", saveAjax: "POST"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -34,7 +24,7 @@ class ReviewController extends ControllerTemplate
         respond new Review(params)
     }
 
-     @Transactional
+    @Transactional
     def save(Review review) {
         if (review == null) {
             transactionStatus.setRollbackOnly()
@@ -57,6 +47,25 @@ class ReviewController extends ControllerTemplate
             '*' { respond review, [status: CREATED] }
         }
     }
+
+    def saveAjax(Review review) 
+    {
+        User user = User.get(session.user.id)
+        def comment = review?.comment
+        def rating = review?.rating
+
+        
+
+        println user
+        println comment
+        println rating
+
+        review.save flush:true
+    }
+
+
+
+
 
     def edit(Review review) {
         User user = User.get(session.user.id)

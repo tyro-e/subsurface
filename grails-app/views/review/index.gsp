@@ -17,7 +17,7 @@
 					<tr>					
 						<g:sortableColumn property="rating" title="${message(code: 'review.rating.label', default: 'Rating')}" />
 						<th><g:message code="review.author.label" default="Author" /></th>					
-						<g:sortableColumn property="review" title="${message(code: 'review.review.label', default: 'Review')}" />					
+						<g:sortableColumn property="comment" title="${message(code: 'review.comment.label', default: 'Review')}" />					
 						<th><g:message code="review.event.label" default="Event" /></th>					
 					</tr>
 				</thead>
@@ -26,7 +26,7 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">					
 						<td><g:link action="show" id="${reviewInstance.id}">${fieldValue(bean: reviewInstance, field: "rating")}</g:link></td>					
 						<td>${fieldValue(bean: reviewInstance, field: "author")}</td>					
-						<td>${fieldValue(bean: reviewInstance, field: "review")}</td>					
+						<td>${fieldValue(bean: reviewInstance, field: "comment")}</td>					
 						<td>${fieldValue(bean: reviewInstance, field: "event")}</td>					
 					</tr>
 				</g:each>
