@@ -10,6 +10,7 @@ class Review {
 	static mapping = {
 		comment type:"text"
 		rating nullable:true
+		
 	}
 
     static constraints = {

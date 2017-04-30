@@ -143,6 +143,7 @@ function eventDate(){
       $('.setlist-section').css('display','none');
 
       // hide ratings
+      $('#rating-2').click();
       $('.rating-text').css('display','none');
       $('.rating-field').css('display','none');
       $('.overall-rating-div').css('display','none');
@@ -168,6 +169,7 @@ function eventDate(){
       $('.setlist-section').css('display','none');
 
       // hide ratings
+      $('#rating-2').click();
       $('.rating-text').css('display','none');
       $('.rating-field').css('display','none');
       $('.overall-rating-div').css('display','none');

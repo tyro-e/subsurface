@@ -193,10 +193,8 @@
 
 									<div class="btn-group-vertical pull-right">
 										<g:if test='${session.user?.role.equals("ROLE_USER") || session.user?.role.equals("ROLE_ADMIN")}'>
-
-											<g:form  id="${r.id }" controller="review" action="delete" method="DELETE" style = "margin-top: 0">
+											<g:form id="${r.id }" controller="review" action="delete" method="DELETE" style = "margin-top: 0">
 												<g:hiddenField name="eventId" value="${ event.id}"/>
-												
 												<g:actionSubmit class="btn delete-comment-btn" action="delete" value="X" onclick="return confirm('Are you sure?');" />
 												<!--
 												<input type="submit" id="deleteComment" value="AJAX DELETE" />-->
@@ -257,7 +255,7 @@
 								
 									<div class="btn-group-vertical col-md-2">
 										<g:form id="${setlist.id }" controller="setlist" action="delete" method="DELETE" style = "margin-top: 0">
-											<g:hiddenField name="eventId" value="${ event.id}"/>
+											<g:hiddenField name="eventId" value="${event.id}"/>
 											<g:actionSubmit class="btn delete-setlist-btn" action="delete" value="X" onclick="return confirm('Are you sure?');" />										
 										</g:form>									
 									</div>
@@ -289,10 +287,8 @@
 	<script src="${resource(dir:'js/livestream', file:'socket.io.js')}" type="text/javascript"></script>
 	<script src="${resource(dir:'js/livestream', file:'livestream.js')}" type="text/javascript"></script>
 	<g:javascript>var emailAction = "${createLink(controller:'user',action:'getEmails')}"</g:javascript>
-
 	<g:javascript>var reviewCommentAction = "${createLink(controller:'review',action:'saveAjax')}"</g:javascript>
 	<g:javascript>var reviewDeleteAction = "${createLink(controller:'review',action:'deleteAjax')}"</g:javascript>
-
 	<g:javascript>var setlistAddAction = "${createLink(controller:'setlist',action:'saveAjax')}"</g:javascript>
 	<g:javascript>var setlistDeleteAction = "${createLink(controller:'setlist',action:'deleteAjax')}"</g:javascript>
 	</body>

@@ -106,11 +106,8 @@ class ReviewController extends ControllerTemplate
 
     @Transactional
     def delete(Review review) {
-        println "in delete"
-
         User user = User.get(session.user.id)
-        //def eventId = event.id;
-
+      
         if(user != review.author)
         {
             flash.message="You can only delete your own review"
