@@ -7,9 +7,7 @@ class BootStrap {
 
     def init = { servletContext ->
 
-        
-
-        def user = User.findOrSaveWhere(fullName:"Tyrone Stock", email:"s.tyrone@hotmail.com", password:"root",role:"ROLE_USER")
+        def user = User.findOrSaveWhere(fullName:"Tyrone Stock", email:"s.tyrone@hotmail.com", password:"root",role:"ROLE_ADMIN")
         def admin = User.findOrSaveWhere(fullName:"Admin", email:"admin@hotmail.com", password:'root',role:"ROLE_ADMIN")
 
     }

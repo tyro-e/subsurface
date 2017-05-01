@@ -401,6 +401,7 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 
 #create-review{
     margin-top: 35px;
+    min-height: 400px;
 }
 
 .song-title{

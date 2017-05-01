@@ -41,14 +41,13 @@ class ReviewController extends ControllerTemplate
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'review.label', default: 'Review'), review.id])
                 redirect(action:'show',controller:'event', id:review.event.id)
             }
             '*' { respond review, [status: CREATED] }
         }
     }
 
-    def saveAjax(Review review) 
+    def saveAjax() 
     {
         User user = User.get(session.user.id)
         def comment = review?.comment
@@ -60,7 +59,9 @@ class ReviewController extends ControllerTemplate
         println comment
         println rating
 
-        review.save flush:true
+        review.save flush:true, failOnError: true
+
+
     }
 
 
@@ -72,7 +73,7 @@ class ReviewController extends ControllerTemplate
         println user
 
         if(user != review.user){
-            flash.message="You can only edit your own review"
+            flash.message="You can only edit your own comments"
             redirect(action:'show',controller:'event', id:review.event.id)
         }else{
             respond review
@@ -125,7 +126,6 @@ class ReviewController extends ControllerTemplate
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Review.label', default: 'Review'), review.id])
                 redirect(action:'show',controller:'event', id:params.eventId)
             }
             '*'{ render status: NO_CONTENT }

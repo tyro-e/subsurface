@@ -90,13 +90,13 @@
 			<div id="show-event" class="col-md-9 scaffold-show" role="main">	
 				<div class="content" style="padding-left: 0">
 					
-					<!-- DISPLAY IMAGES -->
+					<!-- DISPLAY CONTENT -->
 		    		<div class="content" style="padding-left: 0px;padding-right: 60px;max-height: 500px;">
 
 			    		<div class="slider-nav">
 
 						  	<g:each in="${event.contents}" var="content">
-		                		<g:if test="${content.url.endsWith('.MOV') || content.url.endsWith('.mp4')}">
+		                		<g:if test="${content.url.endsWith('.MOV') || content.url.endsWith('.mp4') || content.url.endsWith('.mov') || content.url.endsWith('.wmv')}">
 					            	<video class = "event-content-thumbnail video-thumb" height = "50px"  >
 					            		<div>
 					                		<source src="${content.url}" type="video/mp4">
@@ -115,7 +115,7 @@
 							<div class="slider-for">
 
 								<g:each in="${event.contents}" var="content">
-							        <g:if test="${content.url.endsWith('.MOV') || content.url.endsWith('.mp4')}">
+							        <g:if test="${content.url.endsWith('.MOV') || content.url.endsWith('.mp4') || content.url.endsWith('.mov') || content.url.endsWith('.wmv')}">
 							            <video class = "event-content" controls  >
 							                <source src="${content.url}" type="video/mp4">
 							            </video>
@@ -181,6 +181,9 @@
 					<g:render template="createReview"></g:render>
 
 					<g:if test="${event?.reviews}">
+						<g:if test="${flash.message}">
+				            <div class="notif" role="status">${flash.message}</div>
+				        </g:if>
 						
 						<div class="reviews">
 							<g:each in="${reviewList}" var="r">

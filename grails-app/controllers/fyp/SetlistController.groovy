@@ -106,7 +106,6 @@ class SetlistController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'setlist.label', default: 'Setlist'), setlist.id])
                 redirect(action:'show',controller:'event', id:setlist.event.id)
             }
             '*'{ render status: NO_CONTENT }
