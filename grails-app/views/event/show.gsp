@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="${resource(dir:'css',file:'event.css')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'rating.css')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'setlist.css')}" />
+		<link rel="stylesheet" href="${resource(dir:'css',file:'responsiveness.css')}" />
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick-theme.css" rel="stylesheet"/>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick.css" rel="stylesheet"/>
 		<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>

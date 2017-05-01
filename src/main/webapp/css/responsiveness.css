@@ -3,3 +3,12 @@
 	.eventSectionTitle{font-size: 49px;}
 	.artist-search-field{font-size: 43px;}
 }
+
+@media screen and (max-width: 980px){
+
+	.spotify-section{display: none !important;}
+	#create-review{display: none}
+	#map{display: none}
+	video{max-height: 540px;width: 100%;height: 100%}
+	.ticketLinkDiv{display: none !important}
+}
