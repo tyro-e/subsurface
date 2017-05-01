@@ -10,7 +10,7 @@
             <div class="notif" role="status">${flash.message}</div>
         </g:if>
         
-        <div class="login-form col-md-4 col-md-offset-4 ">
+        <div class="login-form col-md-4 col-md-offset-4 " style="padding-left: 0;padding-right: 0;">
             <g:form action="save" >
                 <input type="text" name="fullName" class=" login-field" autocomplete="off" placeholder="Name"/>
                 <input type="text" name="email" class=" login-field" autocomplete="off" placeholder="Email"/>

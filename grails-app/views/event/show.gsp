@@ -186,7 +186,7 @@
 								<div class="col-md-12" style="margin-top: 15px;">
 									<blockquote class="pull-left">
 										<div class="review-text">${r.comment }</div>
-										<small>by<cite title="Source Title">${r.author }</cite></small> 
+										<small>by<cite title="Source Title">${r.user }</cite></small> 
 										<div class = "rating-text">Rating <cite title="Source Title">${r.rating }/5</cite></div>
 										<div class="ratingz">${r.rating}</div>
 									</blockquote>

@@ -4,7 +4,7 @@
 	<div class="form-group">
 	    <div class="col-md-7 rating-field" style="float: left;padding: 0">
 	    	<span class="star-rating star-5">
-		    	<g:radio name="rating" id="rating-1" required value="1"  /><i></i>
+		    	<g:radio name="rating" required id="rating-1" value="1" /><i></i>
 		    	<g:radio name="rating" id="rating-2" value="2"/><i></i>
 		    	<g:radio name="rating" id="rating-3" value="3"/><i></i>
 		    	<g:radio name="rating" id="rating-4" value="4"/><i></i>

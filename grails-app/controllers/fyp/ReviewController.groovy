@@ -71,7 +71,7 @@ class ReviewController extends ControllerTemplate
         User user = User.get(session.user.id)
         println user
 
-        if(user != review.author){
+        if(user != review.user){
             flash.message="You can only edit your own review"
             redirect(action:'show',controller:'event', id:review.event.id)
         }else{
@@ -108,7 +108,7 @@ class ReviewController extends ControllerTemplate
     def delete(Review review) {
         User user = User.get(session.user.id)
       
-        if(user != review.author)
+        if(user != review.user)
         {
             flash.message="You can only delete your own review"
             redirect(action:'show',controller:'event', id:review.event.id)

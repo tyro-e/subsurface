@@ -39,6 +39,7 @@ html{
 
 #show-event{
     padding: 0 27px;
+    min-height: 550px;
 }
 
 .ticketLinkDiv{

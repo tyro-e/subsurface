@@ -5,7 +5,7 @@ class Review {
 	String comment
 	int rating
 
-	static belongsTo = [event:Event, author:User]
+	static belongsTo = [event:Event, user:User]
 	
 	static mapping = {
 		comment type:"text"
