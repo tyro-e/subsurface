@@ -96,12 +96,13 @@ class EventController extends RestfulController
 
     def index(Integer max) {
         int eventCount = Event.count()
-        int startingPoint = eventCount - 50
+        int maxPoint = eventCount - 50
 
         def events = Event.createCriteria().list
         {
             order('eventTime')
-            firstResult(1)      
+            firstResult(1) 
+            maxResults(maxPoint)     
         }
         
         respond events
