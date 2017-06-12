@@ -42,15 +42,27 @@ Login + register pages with a very minimal design:
 **Tech:** 
 
 • Grails 3.2.7
+
 • Front end tech: HTML/ GSP, CSS, Bootstrap, Angular JS, JQuery, Slick JS, AJAX and Vanilla JS
+
 • Bandsintown API
+
 • Spotify API
+
 • Google Maps API
+
 • Amazon Web Services - S3
+
 • REST (adding concerts from bandsintown to db)
+
 • WebRTC (livestreaming)
+
 • Socket.io (livestreaming)
+
 • Heroku (livestreaming)
+
 • GORM/ Hibernate
+
 • MySQL
+
 • EmailJS
