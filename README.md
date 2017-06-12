@@ -2,6 +2,22 @@
 
 The stages I have dubbed as **‘Pre’** – where the concert is in the future; **‘Mid’** – when the concert is actually happening; and **‘Post’** whereby the concert has occurred, relative to the current date. There are various functions available at each stage.
 
+**Tech:** 
+* Grails 3.2.7
+* Front end tech: HTML/ GSP, CSS, Bootstrap, Angular JS, JQuery, Slick JS, AJAX and Vanilla JS
+* Bandsintown API
+* Spotify API
+* Google Maps API
+* Amazon Web Services - S3
+* REST (adding concerts from bandsintown to db)
+* WebRTC (livestreaming)
+* Socket.io (livestreaming)
+* Heroku (livestreaming)
+* GORM/ Hibernate
+* MySQL
+* EmailJS
+
+
 Homepage above the fold:
 ![alt text](http://i.imgur.com/Sl4b4Yh.gif)
 
@@ -35,20 +51,3 @@ There is an archive of all previous events, which the user can browse and search
 
 Login page with a very minimal design which I favour (register page is the same layout):
 ![alt text](http://i.imgur.com/skhEjj3.png)
-
-
-
-**Tech:** 
-* Grails 3.2.7
-* Front end tech: HTML/ GSP, CSS, Bootstrap, Angular JS, JQuery, Slick JS, AJAX and Vanilla JS
-* Bandsintown API
-* Spotify API
-* Google Maps API
-* Amazon Web Services - S3
-* REST (adding concerts from bandsintown to db)
-* WebRTC (livestreaming)
-* Socket.io (livestreaming)
-* Heroku (livestreaming)
-* GORM/ Hibernate
-* MySQL
-* EmailJS
