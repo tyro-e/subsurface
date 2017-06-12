@@ -5,7 +5,7 @@ The stages I have dubbed as **‘Pre’** – where the concert is in the future
 **PRE** – this stage is concerned with finding a concert. On the homepage the next 50 concerts in Dublin are listed, the user also has the ability to search for specific artists to see if they are performing beyond these 50 gigs. Each concert has its own page where the user can see all relevant information such as address, date, venue and a link to buy a ticket. The user also has the ability to listen to music by the artist with a Spotify implementation included on the side.
 
 Homepage above the fold:
-![alt text](homepage gif)
+![alt text](https://i.gyazo.com/96319b8eb38ea600e6bf2c96b5664d54.gif)
 
 Homepage below the fold:
 ![alt text](homepage gif)
@@ -37,8 +37,11 @@ There is an archive of all previous events which the user can browse and search 
 
 
 **Tech:** 
+
 • Grails 3.2.7
+
 • Front end tech: HTML/ GSP, CSS, Bootstrap, Angular JS, JQuery, Slick JS, AJAX and Vanilla JS
+
 • Bandsintown API
 • Spotify API
 • Google Maps API
