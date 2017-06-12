@@ -2,28 +2,27 @@
 
 The stages I have dubbed as **‘Pre’** – where the concert is in the future; **‘Mid’** – when the concert is actually happening; and **‘Post’** whereby the concert has occurred, relative to the current date. There are various functions available at each stage.
 
-**PRE** – this stage is concerned with finding a concert. On the homepage the next 50 concerts in Dublin are listed, the user also has the ability to search for specific artists to see if they are performing beyond these 50 gigs. Each concert has its own page where the user can see all relevant information such as address, date, venue and a link to buy a ticket. The user also has the ability to listen to music by the artist with a Spotify implementation included on the side.
-
 Homepage above the fold:
 ![alt text](https://i.gyazo.com/96319b8eb38ea600e6bf2c96b5664d54.gif)
 
-Homepage below the fold:
-![alt text](homepage gif)
+**PRE** – this stage is concerned with finding a concert. 
+The homepage below the fold, displaying a list of the next 50 concerts happening in Dublin, using the Bandsintown API. The background is a Google Maps display of Dublin which will change to the location of a concert if you click on one:
+![alt text](http://i.imgur.com/blBZQKg.png)
 
-Login/ register pages:
-![alt text](homepage gif)
+A user can search for a gig beyond the 50 that are displayed on the homepage, you can also see how the map changes here:
+![alt text](http://imgur.com/7WGagTi.png)
 
-The pre-event page:
-![alt text](homepage gif)
-
-
+Clicking the INFO button from the homepage brings up the pre-event page for that concert, displaying all relevant information, along with a Spotify album artwork player on the right hand side, which will play the top track from that artists album when clicked:
+![alt text](http://i.imgur.com/CWJFFAG.png)
 
 
-**MID** – this stage involves livestreaming the concert from the event page and can only be performed by an admin.
-![alt text](homepage gif)
 
-Once a livestream has been initiated, an email is sent to all users of the site with the relevant details and a link.
-![alt text](homepage gif)
+
+**MID** – this stage involves livestreaming the concert from the event page and can only be performed by an admin. Below is a screenshot of the livestream being shown on my mobile, facing the source of the livestream - my laptops webcam.
+![alt text](http://i.imgur.com/vGCnhKG.png)
+
+Once a livestream has been initiated, an email is sent to all users of the site with the relevant details and a link. I used EmailJS for this, acting within the small free quota; using my college email as the main sender address.
+![alt text](http://i.imgur.com/VZTieUd.png)
 
 
 
@@ -34,6 +33,10 @@ Once a livestream has been initiated, an email is sent to all users of the site 
 There is an archive of all previous events which the user can browse and search through:
 ![alt text](homepage gif)
 
+
+
+Login/ register pages:
+![alt text](homepage gif)
 
 
 **Tech:** 
