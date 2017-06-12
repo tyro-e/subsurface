@@ -18,7 +18,7 @@ Clicking the INFO button from the homepage brings up the pre-event page for that
 ![alt text](http://i.imgur.com/CWJFFAG.png)
 
 
-**MID** – this stage involves livestreaming the concert from the event page and can only be performed by an admin. Below is a screenshot of the livestream being shown on my mobile, facing the source of the livestream - my laptops webcam.
+**MID** – this stage involves livestreaming the concert from the event page and can only be performed by an admin. Below is a screenshot of the livestream being shown on my mobile, facing the source of the livestream - my laptops webcam. WebRTC, Socket.io and a free to use websocket up on Heroku were used for the livestreaming.
 ![alt text](http://i.imgur.com/vGCnhKG.png)
 
 Once a livestream has been initiated, an email is sent to all users of the site with the relevant details and a link. I used EmailJS for this, using an ajax call to gather all my users email addresses; my college email was the main sender address.
@@ -33,36 +33,22 @@ There is an archive of all previous events, which the user can browse and search
 
 
 
-Login + register pages with a very minimal design:
+Login page with a very minimal design which I favour (register page is the same layout):
 ![alt text](http://i.imgur.com/skhEjj3.png)
-![alt text](http://i.imgur.com/qiIHsQy.png)
 
 
 
 **Tech:** 
-
-• Grails 3.2.7
-
-• Front end tech: HTML/ GSP, CSS, Bootstrap, Angular JS, JQuery, Slick JS, AJAX and Vanilla JS
-
-• Bandsintown API
-
-• Spotify API
-
-• Google Maps API
-
-• Amazon Web Services - S3
-
-• REST (adding concerts from bandsintown to db)
-
-• WebRTC (livestreaming)
-
-• Socket.io (livestreaming)
-
-• Heroku (livestreaming)
-
-• GORM/ Hibernate
-
-• MySQL
-
-• EmailJS
+* Grails 3.2.7
+* Front end tech: HTML/ GSP, CSS, Bootstrap, Angular JS, JQuery, Slick JS, AJAX and Vanilla JS
+* Bandsintown API
+* Spotify API
+* Google Maps API
+* Amazon Web Services - S3
+* REST (adding concerts from bandsintown to db)
+* WebRTC (livestreaming)
+* Socket.io (livestreaming)
+* Heroku (livestreaming)
+* GORM/ Hibernate
+* MySQL
+* EmailJS
