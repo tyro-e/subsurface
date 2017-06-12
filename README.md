@@ -14,7 +14,7 @@ This is the homepage below the fold, displaying a list of the next 50 concerts h
 A user can search for a gig beyond the 50 that are displayed on the homepage, you can also see how the map changes here:
 ![alt text](http://imgur.com/7WGagTi.png)
 
-Clicking the INFO button from the homepage brings up the pre-event page for that concert, displaying all relevant information, along with a Spotify album artwork player on the right hand side, which will play the top track from that artists album when clicked. If the user were to click 'But tickets' they would be redirected to the ticket agent e.g. ticketmaster, eventbrite etc:
+Clicking the INFO button from the homepage brings up the pre-event page for that concert, displaying all relevant information, along with a Spotify album artwork player on the right hand side, which will play the top track from that artists album when clicked. If the user were to click 'BUY TICKETS' they would be redirected to the ticket agent e.g. ticketmaster, eventbrite etc:
 ![alt text](http://i.imgur.com/CWJFFAG.png)
 
 
