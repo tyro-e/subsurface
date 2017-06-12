@@ -274,6 +274,45 @@
 			<div class="col-md-12" style="padding:0;">
 				<div id="map"></div>
 			</div>
+
+			<!-- NEW SPOTIFY CODE POST-FYP -->
+			<div class="container">
+		      <div id="login">
+		        <button id="login-button" class="btn btn-primary">Log in with Spotify</button>
+		      </div>
+		      <div id="loggedin">
+		        <div id="user-profile">
+		        </div>
+		        <div id="oauth">
+		        </div>
+		      </div>
+		    </div>
+
+		    <script id="user-profile-template" type="text/x-handlebars-template">
+		      <div class="media">
+		        <div class="pull-left">
+		          <img class="media-object" width="150" src="{{images.0.url}}" />
+		        </div>
+		        <div class="media-body">
+		          <dl class="dl-horizontal">
+		            <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
+		            <dt>Id</dt><dd>{{id}}</dd>
+		            <dt>Email</dt><dd>{{email}}</dd>
+		            <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
+		            <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
+		            <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
+		            <dt>Country</dt><dd>{{country}}</dd>
+		          </dl>
+		        </div>
+		      </div>
+		    </script>
+
+		    <script id="oauth-template" type="text/x-handlebars-template">
+		      <h2>oAuth info</h2>
+		      <dl class="dl-horizontal">
+		        <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
+		      </dl>
+		    </script>
 		</div>
 
 	
