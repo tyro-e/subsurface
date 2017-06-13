@@ -54,11 +54,3 @@ There is an archive of all previous events, which the user can browse and search
 Login and register pages:
 ![alt text](http://i.imgur.com/skhEjj3.png)
 ![alt text](http://i.imgur.com/PNuNnei.png)
-
-
-
-
-
-
-
-:]
