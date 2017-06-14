@@ -58,7 +58,7 @@
           }
           document.getElementById('login-button').addEventListener('click', function() {
             var client_id = '333027f450f149f8bc9e812d06976db3'; // Your client id
-            var redirect_uri = 'http://localhost:8080/event/show/370'; // Your redirect uri
+            var redirect_uri = 'http://localhost:8080/event/show/431'; // Your redirect uri
             var state = generateRandomString(16);
             localStorage.setItem(stateKey, state);
             var scope = 'user-read-private user-read-email';

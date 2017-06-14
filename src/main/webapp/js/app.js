@@ -389,7 +389,7 @@ app.controller('BandsInTownController', function($scope, $http){
       // centering & zoom level of map
       map = new google.maps.Map(document.getElementById('map'), {     
         center: myLatLng,
-        zoom: 17,
+        zoom: 15,
         scrollwheel: false,
         disableDefaultUI: true,
         styles: [
