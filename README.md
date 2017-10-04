@@ -4,7 +4,7 @@ These stages I have dubbed as **‘Pre’** – where the concert is in the futu
 
 **Tech:** 
 * Grails 3.2.7
-* Front end: HTML/ GSP, CSS, Bootstrap, Angular JS, JQuery, Slick JS, AJAX and Vanilla JS
+* Front end: HTML/ GSP, CSS, Bootstrap, AngularJS 1.4.5, JQuery, Slick JS, AJAX and Vanilla JS
 * Bandsintown API
 * Spotify API
 * Google Maps API
